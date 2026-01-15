@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 import katex from 'markdown-it-katex'
 
 export default defineConfig({
-  base: '/zh-CN/',
+  base: '/Fault-Diagnosis/',
   title: 'SHAP＋热力学仿真辅助随机森林',
   description: '柴油机燃烧室故障可解释性分析',
   lang: 'zh-CN',
