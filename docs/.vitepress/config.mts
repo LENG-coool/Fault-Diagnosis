@@ -33,10 +33,7 @@ export default defineConfig({
       prev: '上一篇',
       next: '下一篇'
     },
-    outline: {
-      level: [2, 3],
-      label: '本页目录'
-    }, 
+    outline: false, 
     nav: [{ text: '首页', link: '/' }],
     sidebar: [
       {
@@ -62,7 +59,14 @@ export default defineConfig({
             :root {
               --vp-layout-max-width: 100% !important;
             }
+            .VPDoc .aside {
+              display: none !important;
+            }
 
+            /* 确保正文内容区域能够利用右侧空出来的空间 */
+            .VPDoc .content-container {
+              max-width: 100% !important;
+            }
             .VPDoc .container, 
             .VPDoc .content, 
             .VPDoc .content-container {
