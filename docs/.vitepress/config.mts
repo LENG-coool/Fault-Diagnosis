@@ -9,7 +9,7 @@ export default defineConfig({
 
   locales: {
     // 这里建议统一指向目录。如果你的文章叫 index.md，点击按钮就能直接进去
-    root: { label: '简体中文', lang: 'zh-CN', link: '/zh-CN/' },
+    root: { label: '简体中文', lang: 'zh-CN', link: '/' },
     en: { label: 'English', lang: 'en-US', link: '/en/' },
     ja: { label: '日本語', lang: 'ja-JP', link: '/ja/' }
   },
@@ -38,9 +38,7 @@ export default defineConfig({
     nav: [{ text: '首页', link: '/' }],
 
     sidebar: {
-      // 注意：如果你的文件名叫 index.md，下面的链接就写 /zh-CN/#引言
-      // 如果文件名叫 shap-rf-fault-diagnosis.md，就必须带上文件名
-      '/zh-CN/': [
+      '/': [
         {
           text: '文章大纲',
           items: [
