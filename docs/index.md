@@ -45,10 +45,12 @@ SHAP 值表明了该参数在故障诊断中的重要程度：SHAP 值越大，�
 
 ### 示例说明：
 <img src="/图片1.png" style="width: 50%; margin: 0 auto; display: block;" />
+<p align="center" style="color: grey">图 1: SHAP 解释图</p>
 如上图，假设有 4 个参数（参数 1-4）组成的决策树，普通 SHAP 需计算所有参数组合；若样本实际经过的路径是「参数 1 → 参数 2 → 参数 3 → 故障 2」，则 Tree SHAP 仅计算这 3 个参数的组合，简化了计算过程。
 
 ## 可解释性分析（以活塞环磨损 F4 故障为例）
 ![图片描述](/图片2.png)
+<p align="center" style="color: grey">图 1: SHAP 解释图</p>
 如上图是活塞环磨损（F4故障）的 SHAP 值多维度分析图，图(a)为瀑布图；图(b)为蜂群图。
 
 ### 1. 瀑布图（图 a）

@@ -86,7 +86,10 @@ export default defineConfig({
         css: {
           additionalData: `
             :root { --vp-layout-max-width: 100% !important; }
-
+            --vp-font-family-base: "Inter", "Source Sans Pro", sans-serif !important;
+            }
+            --vp-c-brand: #2563eb !important;
+            --vp-c-brand-next: #3b82f6 !important;
             /* 隐藏右侧目录并拉伸正文 */
             .VPDoc .aside { display: none !important; width: 0 !important; }
             .VPDoc .container, .VPDoc .content, .VPDoc .content-container {
@@ -100,7 +103,9 @@ export default defineConfig({
               display: block !important;
               max-width: 200px !important; /* 限制宽度强制它换行 */
             }
-            .VPSidebar { width: 260px !important; }
+            .VPSidebar { width: 260px !important; 
+            background-color: #f8fafc !important;
+            border-right: 1px solid #e2e8f0 !important;}
             .VPContent { margin-left: 260px !important; padding: 0 40px !important; }
             .VPNavBar .logo { display: none !important; }
 
@@ -108,7 +113,25 @@ export default defineConfig({
             .katex-display { padding: 10px 0; margin: 1em 0; overflow-x: auto; }
             .katex .base { position: relative; top: 2px; }
             .katex .vlist-t { vertical-align: middle !important; }
+            .vp-doc p {
+              line-height: 1.8 !important;
+              margin-bottom: 1.2em !important;
+              color: #334155 !important;
+            }
 
+            /* 优化引用块 (Blockquote)，适合放摘要或重要结论 */
+            .vp-doc blockquote {
+              background-color: #f1f5f9 !important;
+              border-left: 4px solid var(--vp-c-brand) !important;
+              padding: 16px 20px !important;
+              border-radius: 4px !important;
+            }
+
+            /* 给代码块或 KaTeX 公式加一个淡淡的投影 */
+            .katex-display, .vp-code-group {
+              box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1) !important;
+              border-radius: 8px !important;
+            }
             .vp-doc img {
               display: block;
               margin: 1.5rem auto !important;
