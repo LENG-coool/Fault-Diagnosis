@@ -7,8 +7,8 @@ hero:
   actions:
     - theme: brand
       text: 简体中文
-      link: /zh-CN/
+      link: /zh-CN/shap-rf-fault-diagnosis
     - theme: alt
       text: English
-      link: /en/
+      link: /en/shap-rf-fault-diagnosis
 ---

@@ -7,8 +7,8 @@ export default defineConfig({
   description: '柴油机燃烧室故障可解释性分析',
   lang: 'zh-CN',
 
-  // 1. 多语言站点配置
   locales: {
+    // 这里建议统一指向目录。如果你的文章叫 index.md，点击按钮就能直接进去
     root: { label: '简体中文', lang: 'zh-CN', link: '/zh-CN/' },
     en: { label: 'English', lang: 'en-US', link: '/en/' },
     ja: { label: '日本語', lang: 'ja-JP', link: '/ja/' }
@@ -25,8 +25,6 @@ export default defineConfig({
 
   themeConfig: {
     i18nRouting: true,
-    
-    // 2. 社交链接与页脚
     socialLinks: [
       { icon: 'github', link: 'https://github.com/LENG-coool/Fault-Diagnosis' }
     ],
@@ -37,14 +35,11 @@ export default defineConfig({
     docFooter: { prev: '上一篇', next: '下一篇' },
     outline: false,
     search: false,
+    nav: [{ text: '首页', link: '/' }],
 
-    // 3. 导航栏 (简化为全局统一，或根据需要移入 locales)
-    nav: [
-      { text: '首页', link: '/' }
-    ],
-
-    // 4. 多语言侧边栏
     sidebar: {
+      // 注意：如果你的文件名叫 index.md，下面的链接就写 /zh-CN/#引言
+      // 如果文件名叫 shap-rf-fault-diagnosis.md，就必须带上文件名
       '/zh-CN/': [
         {
           text: '文章大纲',
@@ -94,12 +89,11 @@ export default defineConfig({
             .VPContent { margin-left: 260px !important; padding: 0 40px !important; }
             .VPNavBar .logo { display: none !important; }
 
-            /* KaTeX 样式优化 */
+            /* KaTeX 与图片优化 */
             .katex-display { padding: 10px 0; margin: 1em 0; overflow-x: auto; }
             .katex .base { position: relative; top: 2px; }
             .katex .vlist-t { vertical-align: middle !important; }
 
-            /* 图片交互 */
             .vp-doc img {
               display: block;
               margin: 1.5rem auto !important;
