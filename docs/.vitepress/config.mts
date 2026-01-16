@@ -94,7 +94,12 @@ export default defineConfig({
               width: 100% !important;
               margin: 0 !important;
             }
-
+            .VPNavBarTitle .title {
+              font-size: 14px !important; /* 稍微缩小一点英文标题字号 */
+              white-space: normal !important;
+              display: block !important;
+              max-width: 200px !important; /* 限制宽度强制它换行 */
+            }
             .VPSidebar { width: 260px !important; }
             .VPContent { margin-left: 260px !important; padding: 0 40px !important; }
             .VPNavBar .logo { display: none !important; }
