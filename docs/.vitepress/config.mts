@@ -9,9 +9,10 @@ export default defineConfig({
 
   locales: {
     // 这里建议统一指向目录。如果你的文章叫 index.md，点击按钮就能直接进去
-    root: { label: '简体中文', lang: 'zh-CN', link: '/' },
-    en: { label: 'English', lang: 'en-US', link: '/en/' },
+    root: { label: '简体中文', lang: 'zh-CN', link: '/' ,title: 'SHAP + 热力学仿真辅助随机森林'},
+    en: { label: 'English', lang: 'en-US', link: '/en/',title: 'SHAP + Thermodynamic Simulation' },
     ja: { label: '日本語', lang: 'ja-JP', link: '/ja/' }
+    
   },
 
   markdown: {
