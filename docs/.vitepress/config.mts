@@ -60,10 +60,10 @@ export default defineConfig({
           items: [
             { text: 'Introduction', link: '/en/index#introduction' },
             { text: 'Marginal Contribution', link: '/en/index#marginal-contribution' },
-            { text: 'SHAP Values', link: '/en/index#shap-values' },
-            { text: 'Tree SHAP', link: '/en/index#tree-shap-accelerating-the-calculation' },
-            { text: '可解释性分析', link: '/en/index#xplainability Analysis (Case Study: Piston Ring Wear - F4)' },
-            { text: '原始文献', link: '/en/index#Original Reference' },
+            { text: 'SHAP Values', link: '/en/index#From Marginal Contribution to SHAP Values' },
+            { text: 'Tree SHAP', link: '/en/index#Tree SHAP: Accelerating the Calculation' },
+            { text: 'explainability Analysis', link: '/en/index#explainability Analysis (Case Study: Piston Ring Wear - F4)' },
+            { text: 'Original Reference', link: '/en/index#Original Reference' },
           ]
         }
       ],
