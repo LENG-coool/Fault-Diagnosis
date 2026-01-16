@@ -6,7 +6,11 @@ export default defineConfig({
   title: 'SHAP＋热力学仿真辅助随机森林',
   description: '柴油机燃烧室故障可解释性分析',
   lang: 'zh-CN',
-  
+  locales: {
+    root: { label: '简体中文', lang: 'zh-CN', link: '/zh-CN/' },
+    en: { label: 'English', lang: 'en-US', link: '/en/' },
+    ja: { label: '日本語', lang: 'ja-JP', link: '/ja/' }
+  },
   // 公式渲染配置
   markdown: {
     config: (md) => {
@@ -18,6 +22,11 @@ export default defineConfig({
   ],
 
   themeConfig: {
+    i18nRouting: true,
+    nav: [
+      { text: '首页', link: '/zh-CN/' },
+      { text: '文章', link: '/zh-CN/shap-rf-fault-diagnosis' }
+    ],
     // 社交链接：显示在右上角
     socialLinks: [
       { icon: 'github', link: 'https://github.com/LENG-coool/Fault-Diagnosis' }
@@ -35,19 +44,40 @@ export default defineConfig({
     },
     outline: false, 
     nav: [{ text: '首页', link: '/' }],
-    sidebar: [
+    sidebar: {
+    // 抽屉 1：中文环境显示的菜单
+    '/zh-CN/': [
       {
         text: '文章大纲',
         items: [
-          { text: '引言', link: '#引言' },
-          { text: '边际贡献', link: '#边际贡献' },
-          { text: '从边际贡献到 SHAP 值', link: '#从边际贡献到-shap-值' },
-          { text: 'Tree SHAP：让计算“快起来”', link: '#tree-shap-让计算-快起来' },
-          { text: '可解释性分析', link: '#可解释性分析' },
-          { text: '原始文献', link: '#原始文献' }
+          { text: '引言', link: '/zh-CN/shap-rf-fault-diagnosis#引言' },
+          { text: '边际贡献', link: '/zh-CN/shap-rf-fault-diagnosis#边际贡献' },
+          { text: 'SHAP 值', link: '/zh-CN/shap-rf-fault-diagnosis#从边际贡献到-shap-值' }
         ]
       }
     ],
+
+    // 抽屉 2：英文环境显示的菜单
+    '/en/': [
+      {
+        text: 'Outline',
+        items: [
+          { text: 'Introduction', link: '/en/shap-rf-fault-diagnosis#introduction' },
+          { text: 'Marginal Contribution', link: '/en/shap-rf-fault-diagnosis#marginal-contribution' }
+        ]
+      }
+    ],
+
+    // 抽屉 3：日语环境显示的菜单
+    '/ja/': [
+      {
+        text: '目次',
+        items: [
+          { text: 'はじめに', link: '/ja/shap-rf-fault-diagnosis#はじめに' }
+        ]
+      }
+    ]
+  },
     search: false // 如果需要搜索，可以改为 { provider: 'local' }
   },
 
