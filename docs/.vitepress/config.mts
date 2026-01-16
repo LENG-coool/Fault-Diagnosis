@@ -8,11 +8,9 @@ export default defineConfig({
   lang: 'zh-CN',
 
   locales: {
-    // 这里建议统一指向目录。如果你的文章叫 index.md，点击按钮就能直接进去
-    root: { label: '简体中文', lang: 'zh-CN', link: '/' ,title: 'SHAP + 热力学仿真辅助随机森林'},
-    en: { label: 'English', lang: 'en-US', link: '/en/',title: 'SHAP + Thermodynamic Simulation' },
-    ja: { label: '日本語', lang: 'ja-JP', link: '/ja/' }
-    
+    root: { label: '简体中文', lang: 'zh-CN', link: '/', title: 'SHAP + 热力学仿真辅助随机森林' },
+    en: { label: 'English', lang: 'en-US', link: '/en/', title: 'SHAP + Thermodynamic Simulation' },
+    ja: { label: '日本語', lang: 'ja-JP', link: '/ja/', title: 'SHAP + 熱力学シミュレーション' }
   },
 
   markdown: {
@@ -20,134 +18,89 @@ export default defineConfig({
       md.use(katex)
     }
   },
+  
   head: [
-    ['link', { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css' }]
+    ['link', { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css' }],
+    ['style', {}, `
+      /* 1. 标题缩小且禁止换行 */
+      .VPNavBarTitle .title, .VPNavBarTitle .title span {
+        font-size: 14px !important;
+        font-weight: 600 !important;
+        white-space: nowrap !important;
+      }
+      .VPNavBar .logo { display: none !important; }
+
+      /* 2. 核心：强制平铺、对齐并靠右 */
+      .VPNavBar .container .content {
+        display: flex !important;
+        align-items: center !important; /* 强制所有图标在一条水平线上 */
+        justify-content: flex-end !important; /* 强制所有内容靠右 */
+      }
+      
+      .VPNavBar .content-body {
+        display: flex !important;
+        align-items: center !important;
+        flex-grow: 1 !important;
+        justify-content: flex-end !important;
+      }
+
+      /* 强制显示被缩起的组件并对齐 */
+      .VPNavBarMenu { display: flex !important; align-items: center !important; }
+      .VPNavBarAppearance { display: flex !important; align-items: center !important; margin-left: 20px !important; }
+      .VPNavBarSocialLinks { display: flex !important; align-items: center !important; margin-left: 20px !important; }
+      .VPNavBarTranslations { display: flex !important; align-items: center !important; margin-left: 20px !important; }
+      
+      /* 隐藏多余的 "..." 按钮 */
+      .VPNavBarExtra { display: none !important; }
+      .VPNavBarHamburger { display: none !important; }
+
+      /* 3. 公式美化：去掉垂直滑动条 */
+      .katex-display { 
+        background: #f8fafc !important; 
+        border-radius: 8px !important; 
+        padding: 15px !important; 
+        overflow-y: hidden !important; 
+        overflow-x: auto !important; 
+      }
+
+      /* 4. 移除右侧 Aside 占位 */
+      .VPDoc .aside { display: none !important; }
+      .VPContent.has-sidebar { margin-right: 0 !important; }
+    `]
   ],
 
   themeConfig: {
     i18nRouting: true,
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/LENG-coool/Fault-Diagnosis' }
-    ],
-    lastUpdated: {
-      text: '最后更新于',
-      formatOptions: { dateStyle: 'full', timeStyle: 'medium' }
-    },
+    socialLinks: [{ icon: 'github', link: 'https://github.com/LENG-coool/Fault-Diagnosis' }],
+    lastUpdated: { text: '最后更新于', formatOptions: { dateStyle: 'full', timeStyle: 'medium' } },
     docFooter: { prev: '上一篇', next: '下一篇' },
     outline: false,
     search: false,
     nav: [{ text: '首页', link: '/' }],
-
     sidebar: {
-      // 1. 中文版：因为文件是 docs/index.md，所以路径直接写 /#锚点
-      '/': [
-        {
-          text: '文章大纲',
-          items: [
-            { text: '引言', link: '/#引言' },
-            { text: '边际贡献', link: '/#边际贡献' },
-            { text: 'SHAP 值', link: '/#从边际贡献到-shap-值' },
-            { text: 'Tree SHAP', link: '/#Tree SHAP：让计算“快起来”' },
-            { text: '可解释性分析', link: '/#可解释性分析（以活塞环磨损 F4 故障为例）' },
-            { text: '原始文献', link: '/#原始文献' },
-          ]
-        }
-      ],
-
-      // 2. 英文版：必须指向具体的文件名 shap-rf-fault-diagnosis
+      '/': [{
+        text: '文章大纲',
+        items: [
+          { text: '引言', link: '/#引言' },
+          { text: '边际贡献', link: '/#边际贡献' },
+          { text: 'SHAP 值', link: '/#从边际贡献到-shap-值' },
+          { text: 'Tree SHAP', link: '/#Tree SHAP：让计算“快起来”' },
+          { text: '可解释性分析', link: '/#可解释性分析（以活塞环磨损 F4 故障为例）' },
+          { text: '原始文献', link: '/#原始文献' },
+        ]
+      }],
       '/en/': [{
-    text: 'Outline',
-    items: [
-      { text: 'Introduction', link: '/en/#introduction' },
-      { text: 'Marginal Contribution', link: '/en/#marginal-contribution' },
-      { text: 'SHAP Values', link: '/en/#from-marginal-contribution-to-shap-values' },
-      { text: 'Tree SHAP', link: '/en/#tree-shap-accelerating-the-calculation' },
-      { text: 'Explainability Analysis', link: '/en/#explainability-analysis-case-study-piston-ring-wear-f4' },
-      { text: 'Original Reference', link: '/en/#original-reference' },
-    ]
-  }
-],
-
-      // 3. 日语版：同理，指向具体的文件名
-      '/ja/': [
-        {
-          text: '目次',
-          items: [
-            { text: 'はじめに', link: '/ja/index#はじめに' }
-          ]
-        }
-      ]
-    }
-  },
-
-  vite: {
-    css: {
-      preprocessorOptions: {
-        css: {
-          additionalData: `
-            :root { --vp-layout-max-width: 100% !important; }
-            --vp-font-family-base: "Inter", "Source Sans Pro", sans-serif !important;
-            }
-            --vp-c-brand: #2563eb !important;
-            --vp-c-brand-next: #3b82f6 !important;
-            /* 隐藏右侧目录并拉伸正文 */
-            .VPDoc .aside { display: none !important; width: 0 !important; }
-            .VPDoc .container, .VPDoc .content, .VPDoc .content-container {
-              max-width: none !important;
-              width: 100% !important;
-              margin: 0 !important;
-            }
-            .VPNavBarTitle .title {
-              font-size: 14px !important; /* 稍微缩小一点英文标题字号 */
-              white-space: normal !important;
-              display: block !important;
-              max-width: 200px !important; /* 限制宽度强制它换行 */
-            }
-            .VPSidebar { width: 260px !important; 
-            background-color: #f8fafc !important;
-            border-right: 1px solid #e2e8f0 !important;}
-            .VPContent { margin-left: 260px !important; padding: 0 40px !important; }
-            .VPNavBar .logo { display: none !important; }
-
-            /* KaTeX 与图片优化 */
-            .katex-display { padding: 10px 0; margin: 1em 0; overflow-x: auto; }
-            .katex .base { position: relative; top: 2px; }
-            .katex .vlist-t { vertical-align: middle !important; }
-            .vp-doc p {
-              line-height: 1.8 !important;
-              margin-bottom: 1.2em !important;
-              color: #334155 !important;
-            }
-
-            /* 优化引用块 (Blockquote)，适合放摘要或重要结论 */
-            .vp-doc blockquote {
-              background-color: #f1f5f9 !important;
-              border-left: 4px solid var(--vp-c-brand) !important;
-              padding: 16px 20px !important;
-              border-radius: 4px !important;
-            }
-
-            /* 给代码块或 KaTeX 公式加一个淡淡的投影 */
-            .katex-display, .vp-code-group {
-              box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1) !important;
-              border-radius: 8px !important;
-            }
-            .vp-doc img {
-              display: block;
-              margin: 1.5rem auto !important;
-              max-width: 80% !important;
-              height: auto;
-              border-radius: 4px;
-              cursor: zoom-in;
-              transition: transform 0.3s ease;
-            }
-            .vp-doc img:hover {
-              transform: scale(1.02);
-              box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            }
-          `
-        }
-      }
+        text: 'Outline',
+        items: [
+          { text: 'Introduction', link: '/en/#introduction' },
+          { text: 'Marginal Contribution', link: '/en/#marginal-contribution' },
+          { text: 'SHAP Values', link: '/en/#from-marginal-contribution-to-shap-values' },
+          { text: 'Tree SHAP', link: '/en/#tree-shap-accelerating-the-calculation' },
+          { text: 'Explainability Analysis', link: '/en/#explainability-analysis-case-study-piston-ring-wear-f4' },
+          { text: 'Original Reference', link: '/en/#original-reference' },
+        ]
+      }],
+      '/ja/': [{ text: '目次', items: [{ text: 'はじめに', link: '/ja/#はじめに' }] }]
     }
   }
 })
