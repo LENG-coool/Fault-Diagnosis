@@ -19,7 +19,24 @@ export default defineConfig({
   ], // 注意这里的逗号，之前报错可能就是漏了它
 
   themeConfig: {
-    outline: false, 
+    socialLinks: [
+  { icon: 'github', link: 'https://github.com/LENG-coool/Fault-Diagnosis' }
+    ],
+    lastUpdated: {
+    text: '最后更新于',
+    formatOptions: {
+      dateStyle: 'full',
+      timeStyle: 'medium'
+    }
+  },
+  docFooter: {
+    prev: '上一篇',
+    next: '下一篇'
+  },
+    outline: {
+    level: [2, 3],
+    label: '本页目录'
+    }, 
     nav: [{ text: '首页', link: '/' }],
     sidebar: [
       {
@@ -101,6 +118,15 @@ export default defineConfig({
               height: auto;                   /* 保持比例，不拉伸 */
               border-radius: 4px;             /* 可选：给图片加一点圆角，更好看 */
             }
+            .vp-doc img {
+              cursor: zoom-in; /* 鼠标变成放大镜图标 */
+              transition: transform 0.3s ease; /* 增加平滑过渡 */
+            }
+
+            .vp-doc img:hover {
+              transform: scale(1.02); /* 悬停时稍微放大 2% */
+              box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* 增加一点阴影，让图“浮出来” */
+            }  
           `
         }
       }

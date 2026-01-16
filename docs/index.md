@@ -1,4 +1,28 @@
 ---
+layout: home
+
+hero:
+  name: "故障诊断专家系统"
+  text: "基于 SHAP + 随机森林的可解释性分析"
+  tagline: 深度融合热力学仿真与机器学习，助力船舶动力系统智能化
+  image:
+    src: /图片1.png  # 这里可以换成你认为最帅的一张图
+    alt: SHAP分析图
+  actions:
+    - theme: brand
+      text: 开始阅读博文
+      link: /zh-CN/shap-rf-fault-diagnosis
+    - theme: alt
+      text: 查看源码
+      link: https://github.com/LENG-coool/Fault-Diagnosis
+
+features:
+  - title: 解释性增强
+    details: 利用 SHAP 值打破机器学习“黑盒”，精准定位影响燃烧室故障的关键热力学参数。
+  - title: 仿真驱动
+    details: 结合热力学仿真数据，解决实船故障样本不足的痛点。
+  - title: 高效渲染
+    details: 支持 KaTeX 复杂公式渲染与响应式图表展示。
 prev: false
 next: false
 ---
