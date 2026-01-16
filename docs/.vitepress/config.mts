@@ -54,19 +54,18 @@ export default defineConfig({
       ],
 
       // 2. 英文版：必须指向具体的文件名 shap-rf-fault-diagnosis
-      '/en/': [
-        {
-          text: 'Outline',
-          items: [
-            { text: 'Introduction', link: '/en/index#introduction' },
-            { text: 'Marginal Contribution', link: '/en/index#marginal-contribution' },
-            { text: 'SHAP Values', link: '/en/index#From Marginal Contribution to SHAP Values' },
-            { text: 'Tree SHAP', link: '/en/index#Tree SHAP: Accelerating the Calculation' },
-            { text: 'explainability Analysis', link: '/en/index#explainability Analysis (Case Study: Piston Ring Wear - F4)' },
-            { text: 'Original Reference', link: '/en/index#Original Reference' },
-          ]
-        }
-      ],
+      '/en/': [{
+    text: 'Outline',
+    items: [
+      { text: 'Introduction', link: '/en/#introduction' },
+      { text: 'Marginal Contribution', link: '/en/#marginal-contribution' },
+      { text: 'SHAP Values', link: '/en/#from-marginal-contribution-to-shap-values' },
+      { text: 'Tree SHAP', link: '/en/#tree-shap-accelerating-the-calculation' },
+      { text: 'Explainability Analysis', link: '/en/#explainability-analysis-case-study-piston-ring-wear-f4' },
+      { text: 'Original Reference', link: '/en/#original-reference' },
+    ]
+  }
+],
 
       // 3. 日语版：同理，指向具体的文件名
       '/ja/': [
