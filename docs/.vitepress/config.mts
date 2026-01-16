@@ -38,30 +38,33 @@ export default defineConfig({
     nav: [{ text: '首页', link: '/' }],
 
     sidebar: {
+      // 中文：根目录
       '/': [
         {
           text: '文章大纲',
           items: [
-            { text: '引言', link: '/zh-CN/shap-rf-fault-diagnosis#引言' },
-            { text: '边际贡献', link: '/zh-CN/shap-rf-fault-diagnosis#边际贡献' },
-            { text: 'SHAP 值', link: '/zh-CN/shap-rf-fault-diagnosis#从边际贡献到-shap-值' }
+            { text: '引言', link: '/#引言' },
+            { text: '边际贡献', link: '/#边际贡献' },
+            { text: 'SHAP 值', link: '/#从边际贡献到-shap-值' }
           ]
         }
       ],
+      // 英文
       '/en/': [
         {
           text: 'Outline',
           items: [
-            { text: 'Introduction', link: '/en/shap-rf-fault-diagnosis#introduction' },
-            { text: 'Marginal Contribution', link: '/en/shap-rf-fault-diagnosis#marginal-contribution' }
+            { text: 'Introduction', link: '/en/#introduction' },
+            { text: 'Marginal Contribution', link: '/en/#marginal-contribution' }
           ]
         }
       ],
+      // 日语
       '/ja/': [
         {
           text: '目次',
           items: [
-            { text: 'はじめに', link: '/ja/shap-rf-fault-diagnosis#はじめに' }
+            { text: 'はじめに', link: '/ja/#はじめに' }
           ]
         }
       ]
