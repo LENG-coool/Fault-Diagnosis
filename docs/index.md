@@ -25,6 +25,7 @@ prev: false
 next: false
 ---
 <br>
+
 # 基于SHAP＋热力学仿真辅助随机森林的可解释性故障诊断
 ## 引言
 今天分享一篇近期发表在《Measurement》上的前沿论文：《Thermodynamic Simulation-assisted Random Forest: Towards explainable fault diagnosis of combustion chamber components of marine diesel engines》。
