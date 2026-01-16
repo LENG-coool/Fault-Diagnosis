@@ -2,12 +2,10 @@
 layout: home
 
 hero:
-  name: "故障诊断专家系统"
   text: "基于 SHAP + 随机森林的可解释性分析"
   tagline: 深度融合热力学仿真与机器学习，助力船舶动力系统智能化
   image:
-    src: /图片1.png  # 这里可以换成你认为最帅的一张图
-    alt: SHAP分析图
+    src: /图片5.png  # 这里可以换成你认为最帅的一张图
   actions:
     - theme: brand
       text: 开始阅读博文
@@ -26,7 +24,7 @@ features:
 prev: false
 next: false
 ---
-
+<br>
 # 基于SHAP＋热力学仿真辅助随机森林的可解释性故障诊断
 ## 引言
 今天分享一篇近期发表在《Measurement》上的前沿论文：《Thermodynamic Simulation-assisted Random Forest: Towards explainable fault diagnosis of combustion chamber components of marine diesel engines》。

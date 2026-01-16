@@ -38,19 +38,18 @@ export default defineConfig({
     label: '本页目录'
     }, 
     nav: [{ text: '首页', link: '/' }],
-    sidebar: [
-      {
-        text: '文章大纲',
-        items: [
-          { text: '引言', link: '#引言' },
-          { text: '边际贡献', link: '#边际贡献' },
-          { text: '从边际贡献到 SHAP 值', link: '#从边际贡献到-shap-值' },
-          { text: 'Tree SHAP：让计算“快起来”', link: '#tree-shap-让计算-快起来' },
-          { text: '可解释性分析', link: '#可解释性分析' },
-          { text: '原始文献', link: '#原始文献' }
-        ]
-      }
-    ],
+    sidebar: {
+  '/zh-CN/': [
+    {
+      text: '故障诊断核心研究',
+      collapsed: false, // 默认展开
+      items: [
+        { text: 'SHAP 可解释性分析', link: '/zh-CN/shap-rf-fault-diagnosis' },
+        // 以后这里加了新文件，直接在这加一行就行
+      ]
+    }
+  ]
+},
     search: false,
     socialLinks: []
   },
