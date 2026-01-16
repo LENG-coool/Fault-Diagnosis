@@ -38,7 +38,7 @@ export default defineConfig({
     nav: [{ text: '首页', link: '/' }],
 
     sidebar: {
-      // 中文：根目录
+      // 1. 中文版：因为文件是 docs/index.md，所以路径直接写 /#锚点
       '/': [
         {
           text: '文章大纲',
@@ -49,22 +49,24 @@ export default defineConfig({
           ]
         }
       ],
-      // 英文
+
+      // 2. 英文版：必须指向具体的文件名 shap-rf-fault-diagnosis
       '/en/': [
         {
           text: 'Outline',
           items: [
-            { text: 'Introduction', link: '/en/#introduction' },
-            { text: 'Marginal Contribution', link: '/en/#marginal-contribution' }
+            { text: 'Introduction', link: '/en/shap-rf-fault-diagnosis#introduction' },
+            { text: 'Marginal Contribution', link: '/en/shap-rf-fault-diagnosis#marginal-contribution' }
           ]
         }
       ],
-      // 日语
+
+      // 3. 日语版：同理，指向具体的文件名
       '/ja/': [
         {
           text: '目次',
           items: [
-            { text: 'はじめに', link: '/ja/#はじめに' }
+            { text: 'はじめに', link: '/ja/shap-rf-fault-diagnosis#はじめに' }
           ]
         }
       ]
