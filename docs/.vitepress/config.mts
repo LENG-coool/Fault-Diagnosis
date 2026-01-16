@@ -45,7 +45,10 @@ export default defineConfig({
           items: [
             { text: '引言', link: '/#引言' },
             { text: '边际贡献', link: '/#边际贡献' },
-            { text: 'SHAP 值', link: '/#从边际贡献到-shap-值' }
+            { text: 'SHAP 值', link: '/#从边际贡献到-shap-值' },
+            { text: 'Tree SHAP', link: '/#Tree SHAP：让计算“快起来”' },
+            { text: '可解释性分析', link: '/#可解释性分析（以活塞环磨损 F4 故障为例）' },
+            { text: '原始文献', link: '/#原始文献' },
           ]
         }
       ],
@@ -55,8 +58,12 @@ export default defineConfig({
         {
           text: 'Outline',
           items: [
-            { text: 'Introduction', link: '/en/shap-rf-fault-diagnosis#introduction' },
-            { text: 'Marginal Contribution', link: '/en/shap-rf-fault-diagnosis#marginal-contribution' }
+            { text: 'Introduction', link: '/en/index#introduction' },
+            { text: 'Marginal Contribution', link: '/en/index#marginal-contribution' },
+            { text: 'SHAP Values', link: '/en/index#shap-values' },
+            { text: 'Tree SHAP', link: '/en/index#tree-shap-accelerating-the-calculation' },
+            { text: '可解释性分析', link: '/en/index#xplainability Analysis (Case Study: Piston Ring Wear - F4)' },
+            { text: '原始文献', link: '/en/index#Original Reference' },
           ]
         }
       ],
@@ -66,7 +73,7 @@ export default defineConfig({
         {
           text: '目次',
           items: [
-            { text: 'はじめに', link: '/ja/shap-rf-fault-diagnosis#はじめに' }
+            { text: 'はじめに', link: '/ja/index#はじめに' }
           ]
         }
       ]
