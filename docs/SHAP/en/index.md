@@ -6,7 +6,7 @@ next: false
 
 # Explainable Fault Diagnosis for Combustion Chamber Components Based on SHAP + Thermodynamic Simulation-Assisted Random Forest
 ## Introduction
-Today, I’m sharing a cutting-edge paper recently published in Measurement: "Thermodynamic Simulation-assisted Random Forest: Towards explainable fault diagnosis of combustion chamber components of marine diesel engines."
+Today, I’m sharing a cutting-edge paper recently published in Measurement: **"Thermodynamic Simulation-assisted Random Forest: Towards explainable fault diagnosis of combustion chamber components of marine diesel engines"**.
 
 In the field of AI, we often face an awkward reality: a model might boast 99% accuracy, yet engineers hesitate to use it. Why? Because in safety-critical sectors like marine engine diagnostics, a "black-box" prediction isn't enough—we need explainability.
 
@@ -44,11 +44,11 @@ The SHAP value quantifies the importance: the higher the value, the more critica
 Calculating exact SHAP values is computationally expensive because it requires traversing every possible combination. Tree SHAP solves this by leveraging the hierarchical structure of decision trees. Instead of all combinations, it only calculates contributions along the **actual paths** a sample takes through the tree, drastically improving efficiency.
 
 ### Example：
-<img src="/图片1.png" style="width: 50%; margin: 0 auto; display: block;" />
+<img src="/en图片1.png" style="width: 50%; margin: 0 auto; display: block;" />
 In a tree with 4 parameters, if a sample follows the path[P1 → P2 → P3 → Fault 2], Tree SHAP only processes these specific parameters rather than every possible permutation.
 
 ## Explainability Analysis (Case Study: Piston Ring Wear - F4)
-![图片描述](/图片2.png)
+![图片描述](/en图片2.png)
 The researchers analyzed Piston Ring Wear (Fault F4) using multi-dimensional SHAP plots，Plot(a) is Waterfall Plot；Plot(b) is Beeswarm Plot。
 
 ### 1. Waterfall Plot（Plot a）
@@ -77,7 +77,7 @@ C. Luo, M. Zhao, X. Fu, S. Zhong, S. Fu, K. Zhang, X. Yu. Thermodynamic simulati
 <br>
 <hr>
 <div style="display: flex; justify-content: flex-end; padding: 20px 0;">
-  <a href="https://ts-rf.github.io/zh-CN/" 
+  <a href="https://ts-rf.github.io/" 
      style="text-decoration: none; color: inherit; border: 1px solid #e2e2e3; padding: 12px 24px; border-radius: 8px; transition: border-color 0.25s; background-color: var(--vp-c-bg-soft);">
     <div style="font-size: 12px; color: var(--vp-c-text-2); margin-bottom: 4px;">Original Reference</div>
     <div style="font-size: 16px; color: var(--vp-c-brand); font-weight: 600;">Click Here →</div>

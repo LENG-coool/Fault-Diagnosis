@@ -6,7 +6,7 @@ next: false
 
 # 基于SHAP＋热力学仿真辅助随机森林的可解释性故障诊断
 ## 引言
-今天分享一篇近期发表在《Measurement》上的前沿论文：《Thermodynamic Simulation-assisted Random Forest: Towards explainable fault diagnosis of combustion chamber components of marine diesel engines》。
+今天分享一篇近期发表在《Measurement》上的前沿论文：**《Thermodynamic Simulation-assisted Random Forest: Towards explainable fault diagnosis of combustion chamber components of marine diesel engines》**。
 
 在人工智能领域，我们经常面临一个尴尬：模型精度高达 99%，但工程师却不敢用。为什么？因为在涉及生命财产安全的领域（如船舶发动机诊断），“黑盒”模型给出的一个数字是不够的，我们需要的是可解释性。
 

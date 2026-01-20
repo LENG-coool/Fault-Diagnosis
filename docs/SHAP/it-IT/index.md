@@ -1,6 +1,6 @@
 # Diagnosi dei guasti interpretabile basata su SHAP + Foresta Casuale assistita da simulazione termodinamica
 ## Introduzione
-Oggi condividiamo un articolo all'avanguardia pubblicato recentemente su Measurement:《Thermodynamic Simulation-assisted Random Forest: Towards explainable fault diagnosis of combustion chamber components of marine diesel engines》。
+Oggi condividiamo un articolo all'avanguardia pubblicato recentemente su Measurement:**《Thermodynamic Simulation-assisted Random Forest: Towards explainable fault diagnosis of combustion chamber components of marine diesel engines》**。
 
 Nel campo dell'intelligenza artificiale, ci troviamo spesso di fronte a un paradosso: il modello ha un'accuratezza del 99%, ma gli ingegneri non osano usarlo. Perché? Perché in settori che coinvolgono la sicurezza della vita e dei beni (come la diagnosi dei motori navali), un semplice numero fornito da un modello "black box" non è sufficiente; ciò di cui abbiamo bisogno **èl'interpretabilità**.
 
@@ -38,12 +38,12 @@ Il valore SHAP indica l'importanza di quel parametro nella diagnosi: più alto �
 Il calcolo normale dei valori SHAP richiede di analizzare tutte le combinazioni di parametri, il che è estremamente inefficiente. Tree SHAP sfrutta la struttura gerarchica degli alberi decisionali per calcolare i valori SHAP direttamente attraverso i contributi dei nodi di divisione lungo il percorso. In questo modo, è necessario calcolare solo i parametri lungo il **percorso effettivamente intrapreso** dal campione nell'albero, migliorando drasticamente l'efficienza.
 
 ### Esempio illustrativo：
-<img src="/图片1.png" style="width: 50%; margin: 0 auto; display: block;" />
+<img src="/it图片1.png" style="width: 50%; margin: 0 auto; display: block;" />
 <p align="center" style="color: grey">Diagramma del percorso Tree SHAP</p>
 Supponendo un albero decisionale composto da 4 parametri: mentre lo SHAP standard dovrebbe calcolare tutte le combinazioni, se un campione segue il percorso "Parametro 1 → Parametro 2 → Parametro 3 → Guasto 2", Tree SHAP calcolerà solo le combinazioni relative a questi tre parametri, semplificando il processo.
 
 ## Analisi dell'interpretabilità (Esempio: Guasto F4 - Usura delle fasce elastiche)
-![图片描述](/图片2.png)
+![图片描述](/it图片2.png)
 L'immagine sopra mostra l'analisi dei valori SHAP per l'usura delle fasce elastiche (guasto F4). La figura (a) è un grafico a cascata (Waterfall plot), mentre la figura (b) è un grafico a sciame (Beeswarm plot).
 
 ### 1. Grafico a cascata (Fig. a)
@@ -72,7 +72,7 @@ C. Luo, M. Zhao, X. Fu, S. Zhong, S. Fu, K. Zhang, X. Yu. Thermodynamic simulati
 <br>
 <hr>
 <div style="display: flex; justify-content: flex-end; padding: 20px 0;">
-  <a href="https://ts-rf.github.io/zh-CN/" 
+  <a href="https://ts-rf.github.io/it/" 
      style="text-decoration: none; color: inherit; border: 1px solid #e2e2e3; padding: 12px 24px; border-radius: 8px; transition: border-color 0.25s; background-color: var(--vp-c-bg-soft);">
     <div style="font-size: 12px; color: var(--vp-c-text-2); margin-bottom: 4px;">Letteratura Originale</div>
     <div style="font-size: 16px; color: var(--vp-c-brand); font-weight: 600;">Clicca qui →</div>

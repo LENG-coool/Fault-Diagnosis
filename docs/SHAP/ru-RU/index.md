@@ -1,6 +1,6 @@
 # Объяснимая диагностика неисправностей на основе SHAP + термодинамическое моделирование и случайный лес
 ## Введение
-Сегодня мы представляем передовую статью, недавно опубликованную в журнале «Measurement»: «Thermodynamic Simulation-assisted Random Forest: Towards explainable fault diagnosis of combustion chamber components of marine diesel engines» (Случайный лес с поддержкой термодинамического моделирования: на пути к объяснимой диагностике неисправностей компонентов камеры сгорания судовых дизельных двигателей).
+Сегодня мы представляем передовую статью, недавно опубликованную в журнале «Measurement»: **«Thermodynamic Simulation-assisted Random Forest: Towards explainable fault diagnosis of combustion chamber components of marine diesel engines»** (Случайный лес с поддержкой термодинамического моделирования: на пути к объяснимой диагностике неисправностей компонентов камеры сгорания судовых дизельных двигателей).
 
 В области искусственного интеллекта мы часто сталкиваемся с неловкой ситуацией: точность модели достигает 99%, но инженеры боятся ее использовать. Почему? Потому что в областях, связанных с безопасностью жизни и имущества (таких как диагностика судовых двигателей), одной цифры, выдаваемой моделью «черного ящика», недостаточно — нам нужна интерпретируемость.
 
@@ -38,12 +38,12 @@ $$ \phi_{\scriptscriptstyle i}(f,x) = \sum_{S \subseteq N \setminus \{i\}} \frac
 Обычный расчет SHAP требует перебора всех комбинаций параметров, что крайне неэффективно. Tree SHAP использует иерархическую структуру решающих деревьев для прямого расчета значений SHAP через вклад узлов в разделение. Модель учитывает только те параметры, которые находятся на **фактическом пути прохождения выборки** через дерево, что значительно повышает скорость вычислений.
 
 ### Пример：
-<img src="/图片1.png" style="width: 50%; margin: 0 auto; display: block;" />
+<img src="/ru图片1.png" style="width: 50%; margin: 0 auto; display: block;" />
 <p align="center" style="color: grey">Tree shape Схема пути</p>
 Допустим, дерево состоит из 4 параметров. Обычный SHAP рассчитал бы все комбинации. Если выборка прошла по пути «Параметр 1 → Параметр 2 → Параметр 3 → Неисправность 2», то Tree SHAP рассчитает комбинации только для этих трех параметров.
 
 ## Анализ интерпретируемости (на примере износа поршневых колец — неисправность F4)
-![图片描述](/图片2.png)
+![图片描述](/ru图片2.png)
 Рис. (a) — каскадная диаграмма (Waterfall plot); рис. (b) — диаграмма «пчелиный рой» (Beeswarm plot).
 
 ### 1. Каскадная диаграмма (рис. a)
@@ -72,7 +72,7 @@ C. Luo, M. Zhao, X. Fu, S. Zhong, S. Fu, K. Zhang, X. Yu. Thermodynamic simulati
 <br>
 <hr>
 <div style="display: flex; justify-content: flex-end; padding: 20px 0;">
-  <a href="https://ts-rf.github.io/zh-CN/" 
+  <a href="https://ts-rf.github.io/ru/" 
      style="text-decoration: none; color: inherit; border: 1px solid #e2e2e3; padding: 12px 24px; border-radius: 8px; transition: border-color 0.25s; background-color: var(--vp-c-bg-soft);">
     <div style="font-size: 12px; color: var(--vp-c-text-2); margin-bottom: 4px;">Оригинальная литература</div>
     <div style="font-size: 16px; color: var(--vp-c-brand); font-weight: 600;">Нажмите здесь →</div>

@@ -92,7 +92,7 @@ export default defineConfig({
           { text: '引言', link: '/SHAP/#引言' },
           { text: '边际贡献', link: '/SHAP/#边际贡献' },
           { text: 'SHAP 值', link: '/SHAP/#从边际贡献到-shap-值' },
-          { text: 'Tree SHAP', link: '/SHAP/#Tree SHAP：让计算“快起来”' },
+          { text: 'Tree SHAP', link: '/SHAP/#Tree-SHAP：让计算“快起来”' },
           { text: '可解释性分析', link: '/SHAP/#可解释性分析（以活塞环磨损 F4 故障为例）'},
         ]
       }],
