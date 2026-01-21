@@ -9,6 +9,9 @@ hero:
     - theme: brand
       text: SHAP部分
       link: /SHAP/
+    - theme: brand
+      text: 整体流程
+      link: /overall/
 
 features:
   - title: 🔬 热力学仿真辅助

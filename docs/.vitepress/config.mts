@@ -3,20 +3,11 @@ import katex from 'markdown-it-katex'
 
 export default defineConfig({
   base: '/Fault-Diagnosis/',
-  title: 'SHAP＋热力学仿真辅助随机森林',
+  title: 'SHAP+热力学仿真辅助随机森林',
   description: '柴油机燃烧室故障可解释性分析',
   lang: 'zh-CN',
 
   locales: {
-    root: { label: '封面', link: '/' }, 
-    zh: { 
-      label: '简体中文', 
-      lang: 'zh-CN', 
-      link: '/SHAP/', 
-      themeConfig: {
-        siteTitle: '燃烧室故障诊断系统'
-      }
-    },
     en: { 
       label: 'English', 
       lang: 'en-US', 
@@ -25,6 +16,16 @@ export default defineConfig({
         siteTitle: 'Fault Diagnosis System'
       }
     },
+    root: { 
+      
+      label: '简体中文', 
+      lang: 'zh-CN', 
+      link: '/SHAP/', 
+      themeConfig: {
+        siteTitle: '燃烧室故障诊断系统'
+      }
+    }, 
+    
     it: { 
       label: 'Italiano', 
       lang: 'it-IT', 
@@ -48,34 +49,32 @@ export default defineConfig({
   head: [
     ['link', { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css' }],
     ['style', {}, `
-      /* --- 1. 基础样式 (不动) --- */
-      .VPNavBarTitle .title, .VPNavBarTitle .title span { font-size: 14px !important; white-space: nowrap !important; }
+      /* 基础样式调整 */
+      .VPNavBarTitle .title { font-size: 14px !important; white-space: nowrap !important; }
       .VPNavBar .logo { display: none !important; }
-      .VPNavBar .container .content { display: flex !important; justify-content: flex-end !important; align-items: center !important; }
-      .VPNavBar .content-body { display: flex !important; justify-content: flex-end !important; align-items: center !important; flex-grow: 1 !important; }
-      .VPNavBarMenu, .VPNavBarAppearance, .VPNavBarSocialLinks, .VPNavBarTranslations { display: flex !important; align-items: center !important; margin-left: 20px !important; }
-      .VPNavBarExtra, .VPNavBarHamburger { display: none !important; }
-      [class*="home"] .VPNavBarMenu { display: none !important; }
-      [class*="home"] .VPNavBarTranslations { display: none !important; }
-      .VPNavBarTitle { cursor: pointer !important; }
-      .katex-display { background: #f8fafc !important; border-radius: 8px !important; padding: 15px !important; overflow-y: hidden !important; overflow-x: auto !important; }
-      .vp-doc img { border-radius: 12px !important; box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important; margin: 2.5rem auto !important; display: block; }
       .VPDoc .aside { display: none !important; }
       .VPContent.has-sidebar { margin-right: 0 !important; }
-
-      /* --- 2. 只有这里是改动：简单粗暴地隐藏“封面” --- */
       
-      /* 不管在哪个页面，只要菜单里有链接指向 "/Fault-Diagnosis/"，就把它隐藏 */
-      .VPNavBarTranslations .items .VPMenuLink[href="/Fault-Diagnosis/"],
-      .VPNavBarTranslations .items .VPMenuLink[href="/Fault-Diagnosis/index.html"] {
-        display: none !important;
+      /* -------------------------------------------------- */
+      /* 核心修改：当处于封面页 (home) 时，隐藏侧边栏和语言切换器 */
+      /* -------------------------------------------------- */
+      [class*="home"] .VPNavBarTitle,      /* 隐藏左上角标题 */
+      [class*="home"] .VPNavBarMenu,       /* 隐藏首页等文字导航 */
+      [class*="home"] .VPNavBarTranslations, /* 隐藏语言切换按钮 */
+      [class*="home"] .VPSidebar {         /* 隐藏侧边栏 */
+        display: none !important; 
       }
-      
-      /* 顺便把包着它的框也隐藏，防止留白 */
+
+      /* 确保 GitHub 图标在首页可见并调整间距 */
+      [class*="home"] .VPNavBarSocialLinks { 
+        display: flex !important; 
+        margin-right: 20px !important;
+      }
+
+      /* 隐藏切换菜单中指向根路径的冗余项 */
       .VPNavBarTranslations .items .item:has(.VPMenuLink[href="/Fault-Diagnosis/"]) {
         display: none !important;
       }
-      /* ------------------------------------------------ */
     `]
   ],
 
@@ -86,6 +85,7 @@ export default defineConfig({
     nav: [{ text: '首页', link: '/' }],
     
     sidebar: {
+      // 对应 root (简体中文) 的路径
       '/SHAP/': [{
         text: '文章大纲',
         items: [
