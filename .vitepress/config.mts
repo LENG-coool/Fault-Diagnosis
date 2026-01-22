@@ -11,35 +11,35 @@ export default defineConfig({
     en: { 
       label: 'English', 
       lang: 'en-US', 
-      link: '/SHAP/en/', 
+      link: '/en/', 
       themeConfig: {
-        siteTitle: 'Fault Diagnosis System'
+        siteTitle: 'Explainable fault diagnosis'
       }
     },
     root: { 
       
       label: '简体中文', 
       lang: 'zh-CN', 
-      link: '/SHAP/', 
+      link: '/', 
       themeConfig: {
-        siteTitle: '燃烧室故障诊断系统'
+        siteTitle: '可解释性故障诊断'
       }
     }, 
     
     it: { 
       label: 'Italiano', 
       lang: 'it-IT', 
-      link: '/SHAP/it-IT/', 
+      link: '/it/', 
       themeConfig: {
-        siteTitle: 'Sistema di Diagnosi' 
+        siteTitle: 'Diagnosi dei guasti spiegabile‌' 
       }
     },
     ru: { 
       label: 'Русский', 
       lang: 'ru-RU', 
-      link: '/SHAP/ru-RU/', 
+      link: '/ru/', 
       themeConfig: {
-        siteTitle: 'Система диагностики' 
+        siteTitle: 'Объяснимая диагностика неисправностей' 
       }
     }
   },
@@ -80,52 +80,64 @@ export default defineConfig({
 
   themeConfig: {
     logoLink: '#',                  
-    i18nRouting: false, 
     socialLinks: [{ icon: 'github', link: 'https://github.com/LENG-coool/Fault-Diagnosis' }],
     nav: [{ text: '首页', link: '/' }],
     
     sidebar: {
-      // 对应 root (简体中文) 的路径
-      '/SHAP/': [{
-        text: '文章大纲',
-        items: [
-          { text: '引言', link: '/SHAP/#引言' },
-          { text: '边际贡献', link: '/SHAP/#边际贡献' },
-          { text: 'SHAP 值', link: '/SHAP/#从边际贡献到-shap-值' },
-          { text: 'Tree SHAP', link: '/SHAP/#Tree-SHAP：让计算“快起来”' },
-          { text: '可解释性分析', link: '/SHAP/#可解释性分析（以活塞环磨损 F4 故障为例）'},
-        ]
-      }],
-      '/SHAP/en/': [{
-        text: 'Outline',
-        items: [
-          { text: 'Introduction', link: '/SHAP/en/#introduction' },
-          { text: 'Marginal Contribution', link: '/SHAP/en/#marginal-contribution' },
-          { text: 'SHAP Values', link: '/SHAP/en/#from-marginal-contribution-to-shap-values' },
-          { text: 'Tree SHAP', link: '/SHAP/en/#Tree SHAP: Accelerating the Calculation' },
-          { text: 'Explainability Analysis', link: '/SHAP/en/#Explainability Analysis (Case Study: Piston Ring Wear - F4)' },
-        ]
-      }],
-      '/SHAP/it-IT/': [{
-        text: 'Sommario',
-        items: [
-          { text: 'Introduzione', link: '/SHAP/it-IT/#introduzione' },
-          { text: 'Contributo Marginale', link: '/SHAP/it-IT/#contributo-marginale' },
-          { text: 'Valori SHAP', link: '/SHAP/it-IT/#Dal Contributo Marginale al valore SHAP' },
-          { text: 'Tree SHAP', link: '/SHAP/it-IT/#Tree SHAP: Accelerare i calcoli' },
-          { text: 'Analisi di Interpretabilità', link: '/SHAP/it-IT/#Analisi dell\'interpretabilità (Esempio: Guasto F4 - Usura delle fasce elastiche)' },
-        ]
-      }],
-      '/SHAP/ru-RU/': [{
-        text: 'Содержание',
-        items: [
-          { text: 'Введение', link: '/SHAP/ru-RU/#введение' },
-          { text: 'Маржинальный вклад', link: '/SHAP/ru-RU/#Маргинальный вклад' },
-          { text: 'Значения SHAP', link: '/SHAP/ru-RU/#От маргинального вклада к значениям SHAP' },
-          { text: 'Tree SHAP', link: '/SHAP/ru-RU/#Tree SHAP: ускорение вычислений' },
-          { text: 'Анализ интерпретируемости', link: '/SHAP/ru-RU/#Анализ интерпретируемости (на примере износа поршневых колец — неисправность F4)' },
-        ]
-      }]
-    }
+        '/SHAP/': [{
+          text: '文章大纲',
+          items: [
+            { text: '引言', link: '/SHAP/shap#引言' },
+            { text: '边际贡献', link: '/SHAP/shap#边际贡献' },
+            { text: 'SHAP 值', link: '/SHAP/shap#SHAP值' },
+            { text: 'Tree SHAP', link: '/SHAP/shap#Tree' },
+            { text: '可解释性分析', link: '/SHAP/shap#可解释性分析' },
+            { text: '原始文献', link: '/SHAP/shap#原始文献' }
+          ]
+        }],
+        '/en/SHAP/': [{
+          text: 'Outline',
+          items: [
+            { text: 'Introduction', link: '/en/SHAP/shap#Introduction'},
+            { text: 'Marginal Contribution', link: '/en/SHAP/shap#contribution'},
+            { text: 'SHAP Values', link: '/en/SHAP/shap#SHAP' },
+            { text: 'Tree SHAP', link: '/en/SHAP/shap#Tree' },
+            { text: 'Explainability Analysis', link: '/en/SHAP/shap#Analysis' },
+            { text: 'Original Reference', link: '/en/SHAP/shap#Reference' }
+          ]
+        }],
+        '/it/SHAP/': [{
+          text: 'Sommario',
+          items: [
+            { text: 'Introduzione', link: '/it/SHAP/shap#introduzione' },
+            { text: 'Contributo Marginale', link: '/it/SHAP/shap#contributo-marginale' },
+            { text: 'Valori SHAP', link: '/it/SHAP/shap#SHAP' },
+            { text: 'Tree SHAP', link: '/it/SHAP/shap#Tree' },
+            { text: 'Analisi di Spiegabilità', link: '/it/SHAP/shap#analisi' },
+            { text: 'Letteratura Originale', link: '/it/SHAP/shap#letteratura' }
+          ]
+        }],
+        '/ru/SHAP/': [{
+          text: 'Содержание',
+          items: [
+            { text: 'Введение', link: '/ru/SHAP/shap#введение' },
+            { text: 'Маржинальный вклад', link: '/ru/SHAP/shap#вклад' },
+            { text: 'Значения SHAP', link: '/ru/SHAP/shap#shap' },
+            { text: 'Tree SHAP', link: '/ru/SHAP/shap#tree' },
+            { text: 'Анализ объяснимости', link: '/ru/SHAP/shap#анализ' },
+            { text: 'Оригинальная Литература', link: '/ru/SHAP/shap#литература'}
+          ]
+        }],
+        '/overall/': [{
+          text: '文章大纲',
+          items: [
+            { text: '引言', link: '/overall/all#引言' },
+            { text: '技术路线与实施步骤', link: '/SHAP/shap#边际贡献' },
+            { text: 'SHAP 值', link: '/SHAP/shap#SHAP值' },
+            { text: 'Tree SHAP', link: '/SHAP/shap#Tree' },
+            { text: '可解释性分析', link: '/SHAP/shap#可解释性分析' }
+          ]
+        }],
+      }
   }
 })

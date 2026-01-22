@@ -8,10 +8,10 @@ hero:
   actions:
     - theme: brand
       text: SHAP部分
-      link: /SHAP/
+      link: /SHAP/shap.md
     - theme: brand
       text: 整体流程
-      link: /overall/
+      link: /overall/all.md
 
 features:
   - title: 🔬 热力学仿真辅助

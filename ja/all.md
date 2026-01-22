@@ -1,6 +1,8 @@
 ---
-prev: false
-next: false
+<div style="text-align:right;">
+  <a href="/SHAP/en/">English</a> |
+  <a href="/SHAP/">中文</a>
+</div>
 ---
 
 # 文章综述：TSRF 故障诊断框架 {#overall-top}

@@ -5,14 +5,14 @@ next: false
 <br><br>
 
 # Explainable Fault Diagnosis for Combustion Chamber Components Based on SHAP + Thermodynamic Simulation-Assisted Random Forest
-## Introduction
+## Introduction{#Introduction}
 Today, I’m sharing a cutting-edge paper recently published in Measurement: **"Thermodynamic Simulation-assisted Random Forest: Towards explainable fault diagnosis of combustion chamber components of marine diesel engines"**.
 
 In the field of AI, we often face an awkward reality: a model might boast 99% accuracy, yet engineers hesitate to use it. Why? Because in safety-critical sectors like marine engine diagnostics, a "black-box" prediction isn't enough—we need explainability.
 
 This paper demonstrates not only how to combine **Thermodynamic Simulation with Random Forest**(RF) but, more importantly, how to deeply apply the SHAP (Shapley Additive Explanations) algorithm. This provides a novel "X-ray" perspective for complex system diagnostics: it doesn't just locate the fault; it explains exactly which thermodynamic parameters are driving that conclusion.
 
-## Marginal Contribution
+## Marginal Contribution{#contribution}
 The core goal of SHAP is to answer: How much did each feature contribute to the final prediction? In fault diagnosis, this means identifying which thermodynamic parameter led the model to flag a specific fault.
 
 Standard diagnostics usually end once the model outputs a result. However, this explainable approach "deconstructs" the logic backward.
@@ -29,7 +29,7 @@ This value reveals the direction and magnitude of the impact:
 - Negative value: Parameter $i$ decreases the probability (it argues against that fault).
 - Larger magnitude: The more dominant the parameter is in the root cause analysis.
 
-## From Marginal Contribution to SHAP Values
+## From Marginal Contribution to SHAP Values{#SHAP}
 For a single parameter, multiple marginal contributions exist because the parameter set $S$ can be formed in various combinations.
 
 For example, given four thermodynamic parameters $P1$–$P4$, when calculating the marginal contribution of $P1$, there are 8 possible subsets $S$ that do not include $P1$: $\{P2, P3, P4\}$, $\{P2, P3\}$, $\{P3, P4\}$, $\{P2, P4\}$, $\{P2\}$, $\{P3\}$, $\{P4\}$, and $\emptyset$. Consequently, $P1$ has 8 distinct marginal contributions.
@@ -40,14 +40,15 @@ Where $n$ is the total number of parameters and $|S|$ is the size of the subset.
 
 The SHAP value quantifies the importance: the higher the value, the more critical the parameter is for classifying the fault.
 
-## Tree SHAP: Accelerating the Calculation
+## Tree SHAP: Accelerating the Calculation{#Tree}
 Calculating exact SHAP values is computationally expensive because it requires traversing every possible combination. Tree SHAP solves this by leveraging the hierarchical structure of decision trees. Instead of all combinations, it only calculates contributions along the **actual paths** a sample takes through the tree, drastically improving efficiency.
 
 ### Example：
 <img src="/en图片1.png" style="width: 50%; margin: 0 auto; display: block;" />
+<p align="center" style="color: grey">Tree shape Roadmap</p>
 In a tree with 4 parameters, if a sample follows the path[P1 → P2 → P3 → Fault 2], Tree SHAP only processes these specific parameters rather than every possible permutation.
 
-## Explainability Analysis (Case Study: Piston Ring Wear - F4)
+## Explainability Analysis (Case Study: Piston Ring Wear - F4){#Analysis}
 ![图片描述](/en图片2.png)
 The researchers analyzed Piston Ring Wear (Fault F4) using multi-dimensional SHAP plots，Plot(a) is Waterfall Plot；Plot(b) is Beeswarm Plot。
 
@@ -71,7 +72,7 @@ The study identifies that the root causes of Piston Ring Wear (F4) in marine die
 - Low P7: Exhaust gas temperature after turbocharger.
 - High P6: Increased blow-by heat flow.
 
-## Original Reference
+## Original Reference{#Reference}
 C. Luo, M. Zhao, X. Fu, S. Zhong, S. Fu, K. Zhang, X. Yu. Thermodynamic simulation-assisted random forest: Towards explainable fault diagnosis of combustion chamber components of marine diesel engines [J]. Measurement, 2025, 251: 117252.
 
 <br>
