@@ -3,8 +3,8 @@
 
 <br>
 
-::: info [**原始文献📜:**](link:/public/TSRF.pdf)
-*Thermodynamic Simulation-assisted Random Forest: Towards explainable fault diagnosis of combustion chamber components of marine diesel engines*, **Measurement**, 2024.
+::: info [**原始文献📜:**](../public/TSRF.pdf)
+*Thermodynamic Simulation-assisted Random Forest: Towards explainable fault diagnosis of combustion chamber components of marine diesel engines*, **Measurement**, 2025.
 :::
 
 ## 引言 {#引言}
@@ -64,3 +64,13 @@
 论文通过一系列实验验证了TSRF框架的有效性。结果显示，该方法在小样本数据环境下，依然能够实现高达95%以上的诊断准确率，显著优于传统的黑箱模型。
 
 此外，SHAP分析揭示了各热力学参数在不同故障类型中的重要性分布，为工程实践中的故障根因分析提供了宝贵的参考。
+
+<br>
+<hr>
+<div style="display: flex; justify-content: flex-end; padding: 20px 0;">
+  <a href="https://ts-rf.github.io/zh-CN/" 
+     style="text-decoration: none; color: inherit; border: 1px solid #e2e2e3; padding: 12px 24px; border-radius: 8px; transition: border-color 0.25s; background-color: var(--vp-c-bg-soft);">
+    <div style="font-size: 12px; color: var(--vp-c-text-2); margin-bottom: 4px;">了解更多</div>
+    <div style="font-size: 16px; color: var(--vp-c-brand); font-weight: 600;">点击此处 →</div>
+  </a>
+</div>

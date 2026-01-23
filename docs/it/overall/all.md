@@ -3,8 +3,8 @@
 
 <br>
 
-::: info [**Pubblicazione Originale📜:**](link:/public/TSRF.pdf)
-*Thermodynamic Simulation-assisted Random Forest: Towards explainable fault diagnosis of combustion chamber components of marine diesel engines*, **Measurement**, 2024.
+::: info [**Pubblicazione Originale📜:**](../../public/TSRF.pdf)
+*Thermodynamic Simulation-assisted Random Forest: Towards explainable fault diagnosis of combustion chamber components of marine diesel engines*, **Measurement**, 2025.
 :::
 
 ## Introduzione {#introduzione}
@@ -63,3 +63,13 @@ La selezione delle caratteristiche segue una strategia in due fasi:
 La validazione sperimentale dimostra l'efficacia del framework TSRF. Anche in ambienti con campioni limitati, il metodo raggiunge una precisione diagnostica superiore al 95%, superando significativamente i modelli tradizionali a scatola nera.
 
 Inoltre, l'analisi SHAP rivela con successo la distribuzione dell'importanza dei parametri termodinamici tra i diversi tipi di guasto. Questo fornisce agli ingegneri un riferimento affidabile per l'Analisi delle Cause Radice (RCA), trasformando un semplice risultato di classificazione in un'intuizione fisica praticabile.
+
+<br>
+<hr>
+<div style="display: flex; justify-content: flex-end; padding: 20px 0;">
+  <a href="https://ts-rf.github.io/it/" 
+     style="text-decoration: none; color: inherit; border: 1px solid #e2e2e3; padding: 12px 24px; border-radius: 8px; transition: border-color 0.25s; background-color: var(--vp-c-bg-soft);">
+    <div style="font-size: 12px; color: var(--vp-c-text-2); margin-bottom: 4px;">Scopri di più</div>
+    <div style="font-size: 16px; color: var(--vp-c-brand); font-weight: 600;">Clicca qui →</div>
+  </a>
+</div>
