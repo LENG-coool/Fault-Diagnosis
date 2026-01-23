@@ -3,7 +3,7 @@
 
 <br>
 
-::: info [**原始文献📜:**](../public/TSRF.pdf)
+::: info [**原始文献📜:**](/Fault-Diagnosis/TSRF.pdf)
 *Thermodynamic Simulation-assisted Random Forest: Towards explainable fault diagnosis of combustion chamber components of marine diesel engines*, **Measurement**, 2025.
 :::
 
