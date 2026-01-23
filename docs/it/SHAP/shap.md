@@ -1,12 +1,12 @@
 # Diagnosi dei guasti interpretabile basata su SHAP + Foresta Casuale assistita da simulazione termodinamica
-## Introduzione
+## Introduzione{#introduzione}
 Oggi condividiamo un articolo all'avanguardia pubblicato recentemente su Measurement:**《Thermodynamic Simulation-assisted Random Forest: Towards explainable fault diagnosis of combustion chamber components of marine diesel engines》**。
 
 Nel campo dell'intelligenza artificiale, ci troviamo spesso di fronte a un paradosso: il modello ha un'accuratezza del 99%, ma gli ingegneri non osano usarlo. Perché? Perché in settori che coinvolgono la sicurezza della vita e dei beni (come la diagnosi dei motori navali), un semplice numero fornito da un modello "black box" non è sufficiente; ciò di cui abbiamo bisogno **èl'interpretabilità**.
 
 Questo articolo non mostra solo come combinare la **simulazione termodinamica con la Foresta Casuale** (Random Forest - RF), ma applica in modo approfondito l'algoritmo SHAP per fornire una nuova prospettiva "a raggi X" sulla diagnosi dei guasti di sistemi complessi: non solo individua con precisione il guasto, ma spiega anche quale parametro termodinamico stia giocando un ruolo determinante.
 
-## Contributo Marginale
+## Contributo Marginale{#contributo-marginale}
 L'obiettivo principale di SHAP è rispondere a una domanda: quanto contribuisce ogni singola caratteristica al risultato finale della previsione? Applicato alla diagnosi dei guasti, significa capire quale parametro termodinamico ha portato il modello a identificare quel determinato malfunzionamento.
 
 Nella diagnosi dei guasti tradizionale, una volta addestrato il modello, si inseriscono i dati e si ottiene il risultato. La diagnosi interpretabile, invece, scompone il processo all'indietro per stimare l'entità del contributo di ciascun parametro termodinamico, secondo la seguente logica:
@@ -23,7 +23,7 @@ Il contributo marginale del parametro i indica il ruolo svolto nella diagnosi de
 - Se il punteggio diminuisce, il parametro ha un **effetto negativo** (non è tra le cause del guasto k);
 - Maggiore è il valore assoluto del contributo marginale, più significativo è il ruolo del parametro i nella diagnosi del guasto.
 
-## Dal Contributo Marginale al valore SHAP
+## Dal Contributo Marginale al valore SHAP{#SHAP}
 Per un singolo parametro esistono molteplici contributi marginali, poiché l'insieme di parametri S può essere combinato in molti modi.
 
 Ad esempio: se abbiamo 4 parametri termodinamici (P1-P4), per calcolare il contributo di P1, esistono 8 possibili combinazioni dell'insieme S che non includono P1 (es. {P2,P3,P4}, {P2,P3}, ..., fino all'insieme vuoto ∅). Di conseguenza, P1 avrà 8 contributi marginali diversi.
@@ -34,7 +34,7 @@ dove n è il numero totale di parametri e $|S|$ è il numero di parametri nell'i
 
 Il valore SHAP indica l'importanza di quel parametro nella diagnosi: più alto è il valore SHAP, maggiore è l'impatto del parametro sulla classificazione del guasto da parte del modello.
 
-## Tree SHAP: Accelerare i calcoli
+## Tree SHAP: Accelerare i calcoli{#Tree}
 Il calcolo normale dei valori SHAP richiede di analizzare tutte le combinazioni di parametri, il che è estremamente inefficiente. Tree SHAP sfrutta la struttura gerarchica degli alberi decisionali per calcolare i valori SHAP direttamente attraverso i contributi dei nodi di divisione lungo il percorso. In questo modo, è necessario calcolare solo i parametri lungo il **percorso effettivamente intrapreso** dal campione nell'albero, migliorando drasticamente l'efficienza.
 
 ### Esempio illustrativo：
@@ -42,7 +42,7 @@ Il calcolo normale dei valori SHAP richiede di analizzare tutte le combinazioni 
 <p align="center" style="color: grey">Diagramma del percorso Tree SHAP</p>
 Supponendo un albero decisionale composto da 4 parametri: mentre lo SHAP standard dovrebbe calcolare tutte le combinazioni, se un campione segue il percorso "Parametro 1 → Parametro 2 → Parametro 3 → Guasto 2", Tree SHAP calcolerà solo le combinazioni relative a questi tre parametri, semplificando il processo.
 
-## Analisi dell'interpretabilità (Esempio: Guasto F4 - Usura delle fasce elastiche)
+## Analisi dell'interpretabilità (Esempio: Guasto F4 - Usura delle fasce elastiche){#analisi}
 ![图片描述](/it图片2.png)
 L'immagine sopra mostra l'analisi dei valori SHAP per l'usura delle fasce elastiche (guasto F4). La figura (a) è un grafico a cascata (Waterfall plot), mentre la figura (b) è un grafico a sciame (Beeswarm plot).
 
@@ -66,7 +66,7 @@ Le cause principali del guasto da usura delle fasce elastiche della camera di co
 - Temperatura allo scarico post-turbina (P7) troppo bassa;
 - Flusso di calore da trafilamento (P6) troppo alto.
 
-## Letteratura Originale
+## Letteratura Originale{#letteratura}
 C. Luo, M. Zhao, X. Fu, S. Zhong, S. Fu, K. Zhang, X. Yu. Thermodynamic simulation-assisted random forest: Towards explainable fault diagnosis of combustion chamber components of marine diesel engines [J]. Measurement, 2025, 251: 117252.
 
 <br>

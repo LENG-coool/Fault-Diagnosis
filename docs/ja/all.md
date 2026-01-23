@@ -1,6 +1,8 @@
 ---
-prev: false
-next: false
+<div style="text-align:right;">
+  <a href="/SHAP/en/">English</a> |
+  <a href="/SHAP/">中文</a>
+</div>
 ---
 
 # 文章综述：TSRF 故障诊断框架 {#overall-top}
@@ -36,7 +38,7 @@ next: false
 
 ## 结果展示 {#结果}
 以活塞环磨损（F4）为例，文章同时从单样本视角和全局视角观察模型决策过程：
-<img src="/en图片2.png" style="width: 100%; margin: 0 auto; display: block;" />
+<img src="/图片2.png" style="width: 100%; margin: 0 auto; display: block;" />
 ### 1. 单样本视角：瀑布图 (图a) {#waterfall}
 * **逻辑起始**：从底部的模型输出期望值 $E[f(x)]$ 开始推导。
 * **贡献量化**：红色表示正向贡献（增加故障概率），蓝色表示负向影响（减少故障概率）。
