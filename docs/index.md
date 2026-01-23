@@ -2,22 +2,22 @@
 layout: home
 
 hero:
-  name: 热力学仿真辅助随机森林
-  text: 面向船用柴油机燃烧室组件的可解释性故障诊断
-  tagline: "基于随机森林的可解释性分析研究"
+  name: Thermodynamic Simulation-assisted Random Forest
+  text: Explainable Fault Diagnosis for Marine Diesel Engine Combustion Chamber Components
+  tagline: "Research on Explainable Analysis Based on Random Forest"
   actions:
     - theme: brand
-      text: SHAP部分
-      link: /SHAP/shap.md
+      text: SHAP Analysis
+      link: /en/SHAP/shap.md
     - theme: brand
-      text: 整体流程
-      link: /overall/all.md
+      text: Overall Workflow
+      link: /en/overall/all.md
 
 features:
-  - title: 🔬 热力学仿真辅助
-    details: 通过高精度热力学模型生成增强数据，弥补实验样本不足。
-  - title: 🧠 SHAP 可解释性
-    details: 将“黑盒”随机森林模型拆解，直观展示各参数对故障的影响权重。
-  - title: 🛳️ 船舶动力诊断
-    details: 专注于大型船舶柴油机，提供燃烧室故障的早期预警与定位。
+  - title: 🔬 Thermodynamic Simulation-Assisted
+    details: Leverages high-fidelity thermodynamic models to generate augmented data, overcoming the shortage of experimental samples.
+  - title: 🧠 SHAP Explainability
+    details: Deconstructs the "black-box" Random Forest model to intuitively visualize the impact weight of various parameters on faults.
+  - title: 🛳️ Marine Power Diagnostics
+    details: Focused on large-scale marine diesel engines, providing early warning and precise localization for combustion chamber faults.
 ---

@@ -38,11 +38,12 @@ $$\phi_{\scriptscriptstyle i}(f,x) = \sum_{S \subseteq N \setminus \{i\}} \frac{
 通常のSHAP値の計算は、すべてのパラメータの組み合わせを網羅する必要があり、非常に効率が悪いです。そこで Tree SHAP は、決定木の階層構造を利用し、ノードの分割による貢献度から直接SHAP値を算出します。これにより、サンプルが実際に通過したパス上のパラメータのみを計算対象とするため、計算効率が大幅に向上します。
 
 ### 例：
-<img src="/图片1.png" style="width: 50%; margin: 0 auto; display: block;" />
+<img src="/ja图片1.png" style="width: 50%; margin: 0 auto; display: block;" />
+<p align="center" style="color: grey">Tree shape パスず</p>
 上の図のように、4つのパラメータで構成される決定木において、サンプルが「パラメータ1 → パラメータ2 → パラメータ3 → 故障2」という経路を辿った場合、Tree SHAPはこの3つのパラメータの組み合わせに絞って計算を行います。
 
 ## 説明可能性の分析（ピストンリング摩耗 F4 故障の例）
-![图片描述](/图片2.png)
+<img src="/ja图片2.png" style="width: 50%; margin: 0 auto; display: block;" />
 上の図は、ピストンリングの摩耗（F4故障）に関するSHAP値の多次元分析図です。図(a)はウォーターフォール図、図(b)はビースウォーム（蜂群）図です。
 
 ### 1. ウォーターフォール図（図 a）

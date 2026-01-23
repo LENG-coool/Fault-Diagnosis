@@ -1,63 +1,65 @@
-# 可解释故障诊断的新思路：
-# 热力学仿真辅助随机森林(TSRF)
+# Un Nuovo Paradigma per la Diagnosi dei Guasti Spiegabile:
+# Random Forest Assistito da Simulazione Termodinamica (TSRF)
 
 <br>
 
-::: info **原始文献**
+::: info [**Pubblicazione Originale📜:**](link:/public/TSRF.pdf)
 *Thermodynamic Simulation-assisted Random Forest: Towards explainable fault diagnosis of combustion chamber components of marine diesel engines*, **Measurement**, 2024.
 :::
 
-## 引言 {#引言}
-在柴油机的燃烧室故障诊断中，工程实践中长期面临以下三大严峻挑战：
-1. **样本匮乏**：真实故障样本的稀缺限制了深度学习模型的训练效能；
-2. **机理落地难**：纯物理模型因计算复杂度极高，难以满足实际工程的实时性需求；
-3. **黑箱困境**：传统模型往往缺乏可解释性，无法溯源故障发生的内在机理。
+## Introduzione {#introduzione}
+Nel campo della diagnosi dei guasti della camera di combustione dei motori diesel, gli ingegneri affrontano da tempo tre sfide critiche:
+1. **Scarsità di Dati**: La rarità di campioni di guasti reali limita l'efficacia dell'addestramento dei modelli di deep learning.
+2. **Gap di Implementazione**: I modelli fisici puri sono spesso troppo intensivi dal punto di vista computazionale per applicazioni ingegneristiche in tempo reale.
+3. **Il Dilemma della "Scatola Nera"**: I modelli tradizionali di machine learning mancano di trasparenza, rendendo difficile tracciare i meccanismi fisici sottostanti di un guasto rilevato.
 
-针对以上问题，发表在《Measurement》的论文提出了一种创新性且具实际应用潜力的方法：通过物理仿真来辅助机器学习，而不是仅依赖数据来拟合物理模型，从而提升故障诊断的可解释性与可靠性。
+Per affrontare questi problemi, uno studio recente pubblicato in Measurement propone un framework innovativo e pratico: sfruttare la simulazione fisica per aumentare il machine learning piuttosto che affidarsi esclusivamente al data fitting. Questo approccio migliora significativamente sia l'interpretabilità che l'affidabilità della diagnosi dei guasti.
 
-基于这一思路，文章提出了**热力学仿真辅助随机森林**，一种将热力学机理与可解释机器学习结合的燃烧室故障诊断框架。在小样本数据环境下，该方法成功实现了高诊断准确性，同时保持了与物理模型一致的结果，具有显著的工程应用价值。
+Gli autori introducono il **Random Forest Assistito da Simulazione Termodinamica (TSRF)**—un framework che colma il divario tra i meccanismi termodinamici e il machine learning interpretabile. In ambienti con campioni limitati, questo metodo raggiunge un'elevata precisione diagnostica mantenendo la coerenza con le leggi fisiche, offrendo un valore sostanziale per l'ingegneria marina.
 
-## 热力学仿真辅助随机森林整体框架{#框架}
-论文提出的**热力学仿真辅助随机森林**（Thermodynamic Simulation-assisted Random Forest, TSRF）框架，集成了一维热力学模型、随机森林分类器与SHAP解释器，形成了一个闭环的故障诊断系统。
-1. **数据生成与预处理**：通过热力学仿真生成包含正常与故障工况的综合数据集，并进行必要的预处理。
-2. **模型训练与验证**：利用随机森林对预处理后的数据进行训练，并通过交叉验证评估模型性能。
-3. **可解释性分析**：应用SHAP方法对训练好的模型进行解释
-，识别关键热力学参数及其对故障诊断的贡献。
+## Il Framework TSRF {#framework}
+Il framework TSRF integra un modello termodinamico 1D, un classificatore Random Forest (RF) e un interprete SHAP (SHapley Additive exPlanations) per creare un sistema diagnostico a circuito chiuso.
+1. **Generazione e Preprocessamento dei Dati**: I set di dati sintetici che coprono condizioni normali e di guasto vengono generati tramite simulazione termodinamica 1D.
+2. **Addestramento e Validazione del Modello**: Un modello Random Forest viene addestrato sui dati preprocessati, con le prestazioni valutate mediante convalida incrociata.
+3. **Analisi di Interpretabilità**: Il metodo SHAP viene applicato al modello addestrato per identificare i parametri termodinamici chiave e quantificarne il contributo ai risultati diagnostici.
+<img src="/en图片8.png" style="width: 100%; margin: 0 auto; display: block;" />
+<p align="center" style="color: grey">Il Framework Random Forest Assistito da Simulazione Termodinamica (TSRF)</p>
 
-## 一维热力学模型构建与校准{#模型}
-论文首先构建了**一维热力学模型**，模拟柴油机燃烧室的热力学行为。通过对比实验数据，作者对模型进行了精细校准，确保其能够准确反映实际工况下的热力学特性。
-<img src="/图片7.png"  style="width: 50%; margin: 0 auto; display: block;" />
-<p align="center" style="color: grey">柴油机一维热力学模型示意图</p>
+## Costruzione e Calibrazione del Modello Termodinamico 1D {#modello}
+La base dello studio è un **modello termodinamico 1D** progettato per simulare il comportamento termico della camera di combustione. Gli autori hanno eseguito una calibrazione meticolosa rispetto ai dati sperimentali per garantire che il modello rifletta accuratamente le caratteristiche termodinamiche in condizioni di esercizio reali.
+<img src="/en图片7.png"  style="width: 100%; margin: 0 auto; display: block;" />
+<p align="center" style="color: grey">Schema del Modello Termodinamico 1D</p>
 
-此外，模型通过**数据采集模块**(**Data Collection Module, DCM**)获取的实测运行数据进行校准，以确保仿真输出与真实工况在关键热力学参数上保持一致。
-<img src="/图片6.png" style="width: 50%; margin: 0 auto; display: block;" />
-<p align="center" style="color: grey">数据采集模块 (DCM)</p>
+Inoltre, il modello viene calibrato utilizzando i dati di campo acquisiti tramite un **Modulo di Raccolta Dati (DCM)**. Ciò garantisce che l'output della simulazione rimanga coerente con i parametri termodinamici chiave osservati nelle operazioni del motore reale.
+<img src="/en图片6.png" style="width: 60%; margin: 0 auto; display: block;" />
+<p align="center" style="color: grey">Modulo di Raccolta Dati (DCM)</p>
 
-## 燃烧室典型故障的物理建模与仿真{#故障建模}
-在完成模型校准后，作者对燃烧室关键参数进行有针对性的扰动，仿真了五类典型故障，并确保每一类故障均有明确的物理机理支撑。
-| 故障编号 | 故障类型  | 物理机制                   | 关键参数调节                       |
+## Modellazione Fisica e Simulazione di Guasti Tipici {#guasti}
+Una volta calibrato, gli autori hanno introdotto perturbazioni mirate ai parametri chiave per simulare cinque guasti tipici della camera di combustione, assicurando che ogni guasto sia supportato da un meccanismo fisico chiaro.
+| ID Guasto | Tipo di Guasto  | Meccanismo Fisico                  | Regolazioni dei Parametri Chiave                       |
 | ---- | ----- | ---------------------- | ---------------------------- |
-| F1   | 缸盖裂纹  | 热–机械载荷导致裂纹产生，结构与散热能力退化 | 缸盖表面温度 TH 提升至 346 °C         |
-| F2   | 活塞烧蚀  | 材料退化引发热烧蚀，加剧窜气         | 活塞温度 TP 升高 + 轻微窜气（0.01 kg/s） |
-| F3   | 缸套磨损  | 磨粒侵入导致几何变形与严重密封失效      | 缸径增大 + 大量窜气（0.03 kg/s）       |
-| F4   | 活塞环磨损 | 磨损变形引发密封退化，形成窜气正反馈     | 窜气质量流量调节（0.02 kg/s）          |
-| F5   | 活塞环粘着 | 积碳、润滑不足与油泥堆积           | 缸径变化 + 缸套温度升高 + 窜气           |
+| F1   | Frattura della Testata  | Il carico termomeccanico causa cricche; degrado strutturale/di raffreddamento. | Aumenta la Temp. della Testata (TH) a 346 °C         |
+| F2   | Erosione del Pistone  | Il degrado del materiale causa erosione termica e aumento delle perdite.         | Aumenta la Temp. del Pistone (TP) + Perdite Minori (0.01 kg/s) |
+| F3   | Usura della Camicia del Cilindro  | Le particelle abrasive causano deformazione geometrica e cedimento della tenuta.      | Aumenta il Diametro della Foratura + Perdite Elevate (0.03 kg/s)       |
+| F4   | Usura dell'Anello del Pistone | L'usura causa degrado della tenuta e crea un ciclo di feedback di perdite.     | Regola la Portata di Massa delle Perdite (0.02 kg/s)          |
+| F5   | Anello del Pistone Bloccato | Depositi di carbonio, lubrificazione insufficiente e accumulo di fanghi.           | Regola il Diametro della Foratura + Aumenta la Temp. della Camicia + Perdite           |
 
-通过上述故障建模，论文生成了涵盖正常与故障工况的综合数据集，为后续机器学习提供了高质量输入。
+Questa modellazione basata su meccanismi produce un set di dati completo e di alta qualità che serve come "ground truth" per il machine learning.
 
-## 基于RF与SHAP的特征筛选{#特征筛选}
-在数据集构建完成后，作者采用**随机森林**（**Random Forest, RF**）作为主要的机器学习模型，利用其强大的分类能力对燃烧室故障进行诊断。为了提升模型的可解释性，论文引入了**SHAP（SHapley Additive exPlanations**）方法，对模型输出进行深入分析。
+## Selezione delle Caratteristiche tramite RF e SHAP {#selezione}
+Con il set di dati stabilito, l'algoritmo **Random Forest (RF)** viene impiegato come classificatore principale. Per risolvere il problema della "scatola nera", gli autori introducono l'analisi **SHAP** per fornire approfondimenti sul processo decisionale del modello.
 
-采用以下两阶段策略进行筛选：
+La selezione delle caratteristiche segue una strategia in due fasi:
 
-1.随机森林预识别
-- 利用 RF 学习参数与故障类型之间的映射关系；
-- 根据预测得分计算各参数的边际贡献。
+1. Identificazione Preliminare con RF:
+- L'RF apprende la mappatura tra i parametri termodinamici e i tipi di guasto.
+- I contributi marginali di ogni parametro vengono calcolati in base ai punteggi di previsione.
 
-2.Tree SHAP 定量分析
-- 计算各参数的 SHAP 值；
-- 依据 SHAP 权重筛选出对诊断最具贡献、且物理意义明确的参数。
+2. Analisi Quantitativa con Tree SHAP:
+- I valori SHAP vengono calcolati per ogni parametro.
+- Le caratteristiche vengono filtrate in base ai loro pesi SHAP, dando priorità a quelle con il massimo impatto diagnostico e la significanza fisica più evidente.
 
-## 实验结果与性能评估{#实验结果}
-论文通过一系列实验验证了TSRF框架的有效性。结果显示，该方法在小样本数据环境下，依然能够实现高达95%以上的诊断准确率，显著优于传统的黑箱模型。
-此外，SHAP分析揭示了各热力学参数在不同故障类型中的重要性分布，为工程实践中的故障根因分析提供了宝贵的参考。
+## Risultati Sperimentali e Valutazione delle Prestazioni {#risultati}
+La validazione sperimentale dimostra l'efficacia del framework TSRF. Anche in ambienti con campioni limitati, il metodo raggiunge una precisione diagnostica superiore al 95%, superando significativamente i modelli tradizionali a scatola nera.
+
+Inoltre, l'analisi SHAP rivela con successo la distribuzione dell'importanza dei parametri termodinamici tra i diversi tipi di guasto. Questo fornisce agli ingegneri un riferimento affidabile per l'Analisi delle Cause Radice (RCA), trasformando un semplice risultato di classificazione in un'intuizione fisica praticabile.

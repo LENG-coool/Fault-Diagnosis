@@ -17,7 +17,6 @@ export default defineConfig({
       }
     },
     root: { 
-      
       label: '简体中文', 
       lang: 'zh-CN', 
       link: '/', 
@@ -54,7 +53,8 @@ export default defineConfig({
       .VPNavBar .logo { display: none !important; }
       .VPDoc .aside { display: none !important; }
       .VPContent.has-sidebar { margin-right: 0 !important; }
-      
+ 
+      }
       /* -------------------------------------------------- */
       /* 核心修改：当处于封面页 (home) 时，隐藏侧边栏和语言切换器 */
       /* -------------------------------------------------- */
@@ -74,6 +74,54 @@ export default defineConfig({
       /* 隐藏切换菜单中指向根路径的冗余项 */
       .VPNavBarTranslations .items .item:has(.VPMenuLink[href="/Fault-Diagnosis/"]) {
         display: none !important;
+      }
+
+      /* 强制隐藏首页语言切换 */
+      [class*="home"] .VPNavBar .VPNavBarTranslations {
+        display: none !important;
+      }
+
+      /* Hero 区域背景处理 */
+      .VPHero {
+        position: relative;
+      }
+
+      .VPHero::after {
+        content: '';
+        position: absolute;
+        top: 64px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        max-width: 1750px;
+        height: calc(100% - 64px + 300px);
+        background-image: url('/Fault-Diagnosis/图片5.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: 0;
+      }
+
+      .VPHero .container {
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Hero 文本颜色设置为浅色 */
+      .VPHero .main {
+        color: #ffffff;
+      }
+
+      .VPHero .name {
+        color: #ffffff;
+      }
+
+      .VPHero .text {
+        color: #e0e0e0;
+      }
+
+      .VPHero .tagline {
+        color: #d0d0d0;
       }
     `]
   ],
@@ -133,40 +181,40 @@ export default defineConfig({
           items: [
             { text: '引言', link: '/overall/all#引言' },
             { text: '整体框架', link: '/overall/all#框架' },
-            { text: '热力学模型构建与校准', link: '/overall/all#模型' },
+            { text: '热力学模型构建', link: '/overall/all#模型' },
             { text: '物理建模与仿真', link: '/overall/all#故障建模' },
             { text: '基于RF与SHAP的特征筛选', link: '/overall/all#特征筛选' },
             { text: '实验结果与性能评估', link: '/overall/all#实验结果' }],
         }],
         '/en/overall/': [{
-          text: '文章大纲',
+          text: 'Article Outline',
           items: [
-            { text: '引言', link: '/overall/all#引言' },
-            { text: '整体框架', link: '/overall/all#框架' },
-            { text: '热力学模型构建与校准', link: '/overall/all#模型' },
-            { text: '物理建模与仿真', link: '/overall/all#故障建模' },
-            { text: '基于RF与SHAP的特征筛选', link: '/overall/all#特征筛选' },
-            { text: '实验结果与性能评估', link: '/overall/all#实验结果' }],
+            { text: 'Introduction', link: '/en/overall/all#引言' },
+            { text: 'The TSRF Framework', link: '/en/overall/all#框架' },
+            { text: 'Thermodynamic Model Construction', link: '/en/overall/all#模型' },
+            { text: 'Simulation of Typical Faults', link: '/en/overall/all#故障建模' },
+            { text: 'Feature Selection via RF and SHAP', link: '/en/overall/all#特征筛选' },
+            { text: 'Experimental Results', link: '/en/overall/all#实验结果' }],
         }],
         '/it/overall/': [{
-          text: '文章大纲',
+          text: 'Sommario Articoli',
           items: [
-            { text: '引言', link: '/overall/all#引言' },
-            { text: '整体框架', link: '/overall/all#框架' },
-            { text: '热力学模型构建与校准', link: '/overall/all#模型' },
-            { text: '物理建模与仿真', link: '/overall/all#故障建模' },
-            { text: '基于RF与SHAP的特征筛选', link: '/overall/all#特征筛选' },
-            { text: '实验结果与性能评估', link: '/overall/all#实验结果' }],
+            { text: 'Introduzione', link: '/it/overall/all#introduzione' },
+            { text: 'Il Framework TSRF', link: '/it/overall/all#framework' },
+            { text: 'Costruzione del Modello Termodinamico', link: '/it/overall/all#modello' },
+            { text: 'Simulazione dei Guasti Tipici', link: '/it/overall/all#guasti' },
+            { text: 'Selezione delle Caratteristiche via RF e SHAP', link: '/it/overall/all#selezione' },
+            { text: 'Risultati Sperimentali', link: '/it/overall/all#risultati' }],
         }],
         '/ru/overall/': [{
-          text: '文章大纲',
+          text: 'Содержание Статьи',
           items: [
-            { text: '引言', link: '/overall/all#引言' },
-            { text: '整体框架', link: '/overall/all#框架' },
-            { text: '热力学模型构建与校准', link: '/overall/all#模型' },
-            { text: '物理建模与仿真', link: '/overall/all#故障建模' },
-            { text: '基于RF与SHAP的特征筛选', link: '/overall/all#特征筛选' },
-            { text: '实验结果与性能评估', link: '/overall/all#实验结果' }],
+            { text: 'Введение', link: '/ru/overall/all#введение' },
+            { text: 'Основа TSRF', link: '/ru/overall/all#основа' },
+            { text: 'Построение Термодинамической Модели', link: '/ru/overall/all#модель' },
+            { text: 'Моделирование Типичных Отказов', link: '/ru/overall/all#отказы' },
+            { text: 'Выбор признаков посредством RF и SHAP', link: '/ru/overall/all#выбор' },
+            { text: 'Экспериментальные результаты', link: '/ru/overall/all#результаты' }],
         }],
       }
   }

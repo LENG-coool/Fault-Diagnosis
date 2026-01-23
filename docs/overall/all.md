@@ -3,7 +3,7 @@
 
 <br>
 
-::: info **原始文献**
+::: info [**原始文献📜:**](link:/public/TSRF.pdf)
 *Thermodynamic Simulation-assisted Random Forest: Towards explainable fault diagnosis of combustion chamber components of marine diesel engines*, **Measurement**, 2024.
 :::
 
@@ -23,14 +23,16 @@
 2. **模型训练与验证**：利用随机森林对预处理后的数据进行训练，并通过交叉验证评估模型性能。
 3. **可解释性分析**：应用SHAP方法对训练好的模型进行解释
 ，识别关键热力学参数及其对故障诊断的贡献。
+<img src="/图片8.png" style="width: 100%; margin: 0 auto; display: block;" />
+<p align="center" style="color: grey">热力学仿真辅助随机森林 (TSRF) 框架示意图</p>
 
 ## 一维热力学模型构建与校准{#模型}
 论文首先构建了**一维热力学模型**，模拟柴油机燃烧室的热力学行为。通过对比实验数据，作者对模型进行了精细校准，确保其能够准确反映实际工况下的热力学特性。
-<img src="/图片7.png"  style="width: 50%; margin: 0 auto; display: block;" />
+<img src="/图片7.png"  style="width: 100%; margin: 0 auto; display: block;" />
 <p align="center" style="color: grey">柴油机一维热力学模型示意图</p>
 
 此外，模型通过**数据采集模块**(**Data Collection Module, DCM**)获取的实测运行数据进行校准，以确保仿真输出与真实工况在关键热力学参数上保持一致。
-<img src="/图片6.png" style="width: 50%; margin: 0 auto; display: block;" />
+<img src="/图片6.png" style="width: 60%; margin: 0 auto; display: block;" />
 <p align="center" style="color: grey">数据采集模块 (DCM)</p>
 
 ## 燃烧室典型故障的物理建模与仿真{#故障建模}
@@ -60,4 +62,5 @@
 
 ## 实验结果与性能评估{#实验结果}
 论文通过一系列实验验证了TSRF框架的有效性。结果显示，该方法在小样本数据环境下，依然能够实现高达95%以上的诊断准确率，显著优于传统的黑箱模型。
+
 此外，SHAP分析揭示了各热力学参数在不同故障类型中的重要性分布，为工程实践中的故障根因分析提供了宝贵的参考。

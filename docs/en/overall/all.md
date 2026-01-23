@@ -1,63 +1,65 @@
-# 可解释故障诊断的新思路：
-# 热力学仿真辅助随机森林(TSRF)
+# A New Paradigm for Explainable Fault Diagnosis:
+# Thermodynamic Simulation-assisted Random Forest (TSRF)
 
 <br>
 
-::: info **原始文献**
+::: info [**Original Publication📜:**](link:/public/TSRF.pdf)
 *Thermodynamic Simulation-assisted Random Forest: Towards explainable fault diagnosis of combustion chamber components of marine diesel engines*, **Measurement**, 2024.
 :::
 
-## 引言 {#引言}
-在柴油机的燃烧室故障诊断中，工程实践中长期面临以下三大严峻挑战：
-1. **样本匮乏**：真实故障样本的稀缺限制了深度学习模型的训练效能；
-2. **机理落地难**：纯物理模型因计算复杂度极高，难以满足实际工程的实时性需求；
-3. **黑箱困境**：传统模型往往缺乏可解释性，无法溯源故障发生的内在机理。
+## Introduction {#引言}
+In the field of diesel engine combustion chamber fault diagnosis, engineers have long struggled with three critical challenges:
+1. **Data Scarcity**：The rarity of real-world fault samples limits the training effectiveness of deep learning models.
+2. **Implementation Gap**：Pure physical models are often too computationally intensive for real-time engineering applications.
+3. **The "Black Box" Dilemma**：Traditional machine learning models lack transparency, making it difficult to trace the underlying physical mechanisms of a detected fault.
 
-针对以上问题，发表在《Measurement》的论文提出了一种创新性且具实际应用潜力的方法：通过物理仿真来辅助机器学习，而不是仅依赖数据来拟合物理模型，从而提升故障诊断的可解释性与可靠性。
+To address these issues, a recent study published in Measurement proposes an innovative and practical framework: leveraging physical simulation to augment machine learning rather than relying solely on data fitting. This approach significantly enhances both the explainability and reliability of fault diagnosis.
 
-基于这一思路，文章提出了**热力学仿真辅助随机森林**，一种将热力学机理与可解释机器学习结合的燃烧室故障诊断框架。在小样本数据环境下，该方法成功实现了高诊断准确性，同时保持了与物理模型一致的结果，具有显著的工程应用价值。
+The authors introduce the **Thermodynamic Simulation-assisted Random Forest (TSRF)**—a framework that bridges thermodynamic mechanisms with explainable machine learning. In small-sample environments, this method achieves high diagnostic accuracy while maintaining consistency with physical laws, offering substantial value for marine engineering.
 
-## 热力学仿真辅助随机森林整体框架{#框架}
-论文提出的**热力学仿真辅助随机森林**（Thermodynamic Simulation-assisted Random Forest, TSRF）框架，集成了一维热力学模型、随机森林分类器与SHAP解释器，形成了一个闭环的故障诊断系统。
-1. **数据生成与预处理**：通过热力学仿真生成包含正常与故障工况的综合数据集，并进行必要的预处理。
-2. **模型训练与验证**：利用随机森林对预处理后的数据进行训练，并通过交叉验证评估模型性能。
-3. **可解释性分析**：应用SHAP方法对训练好的模型进行解释
-，识别关键热力学参数及其对故障诊断的贡献。
+## The TSRF Framework{#框架}
+The TSRF framework integrates a 1D thermodynamic model, a Random Forest (RF) classifier, and a SHAP (SHapley Additive exPlanations) interpreter to create a closed-loop diagnostic system.
+1. **Data Generation & Preprocessing**：Synthetic datasets covering both normal and faulty conditions are generated via 1D thermodynamic simulation.
+2. **Model Training & Validation**：A Random Forest model is trained on the preprocessed data, with performance evaluated through cross-validation.
+3. **Explainability Analysis**：The SHAP method is applied to the trained model to identify key thermodynamic parameters and quantify their contribution to the diagnostic results.
+<img src="/en图片8.png" style="width: 100%; margin: 0 auto; display: block;" />
+<p align="center" style="color: grey">The Thermodynamic Simulation-assisted Random Forest (TSRF) Framework</p>
 
-## 一维热力学模型构建与校准{#模型}
-论文首先构建了**一维热力学模型**，模拟柴油机燃烧室的热力学行为。通过对比实验数据，作者对模型进行了精细校准，确保其能够准确反映实际工况下的热力学特性。
-<img src="/图片7.png"  style="width: 50%; margin: 0 auto; display: block;" />
-<p align="center" style="color: grey">柴油机一维热力学模型示意图</p>
+## 1D Thermodynamic Model Construction & Calibration{#模型}
+The foundation of the study is a **1D thermodynamic model** designed to simulate the thermal behavior of the combustion chamber. The authors performed meticulous calibration against experimental data to ensure the model accurately reflects thermodynamic characteristics under real operating conditions.
+<img src="/en图片7.png"  style="width: 100%; margin: 0 auto; display: block;" />
+<p align="center" style="color: grey">Schematic of the 1D Thermodynamic Model</p>
 
-此外，模型通过**数据采集模块**(**Data Collection Module, DCM**)获取的实测运行数据进行校准，以确保仿真输出与真实工况在关键热力学参数上保持一致。
-<img src="/图片6.png" style="width: 50%; margin: 0 auto; display: block;" />
-<p align="center" style="color: grey">数据采集模块 (DCM)</p>
+Furthermore, the model is calibrated using field data acquired through a **Data Collection Module (DCM)**. This ensures that the simulation output remains consistent with the key thermodynamic parameters observed in actual engine operations.
+<img src="/en图片6.png" style="width: 60%; margin: 0 auto; display: block;" />
+<p align="center" style="color: grey">Data Collection Module (DCM)</p>
 
-## 燃烧室典型故障的物理建模与仿真{#故障建模}
-在完成模型校准后，作者对燃烧室关键参数进行有针对性的扰动，仿真了五类典型故障，并确保每一类故障均有明确的物理机理支撑。
-| 故障编号 | 故障类型  | 物理机制                   | 关键参数调节                       |
+## Physical Modeling & Simulation of Typical Faults{#故障建模}
+Once calibrated, the authors introduced targeted perturbations to key parameters to simulate five typical combustion chamber faults, ensuring each fault is backed by a clear physical mechanism.
+| Fault ID | Fault Type  | Physical Mechanism                  | Key Parameter Adjustments                       |
 | ---- | ----- | ---------------------- | ---------------------------- |
-| F1   | 缸盖裂纹  | 热–机械载荷导致裂纹产生，结构与散热能力退化 | 缸盖表面温度 TH 提升至 346 °C         |
-| F2   | 活塞烧蚀  | 材料退化引发热烧蚀，加剧窜气         | 活塞温度 TP 升高 + 轻微窜气（0.01 kg/s） |
-| F3   | 缸套磨损  | 磨粒侵入导致几何变形与严重密封失效      | 缸径增大 + 大量窜气（0.03 kg/s）       |
-| F4   | 活塞环磨损 | 磨损变形引发密封退化，形成窜气正反馈     | 窜气质量流量调节（0.02 kg/s）          |
-| F5   | 活塞环粘着 | 积碳、润滑不足与油泥堆积           | 缸径变化 + 缸套温度升高 + 窜气           |
+| F1   | Cylinder Head Crack  | Thermo-mechanical loading leads to cracking; structural/cooling degradation. | Increase Head Temp (TH) to 346 °C         |
+| F2   | Piston Erosion  | Material degradation causes thermal erosion and increased blow-by.         | Increase Piston Temp (TP) + Minor Blow-by (0.01 kg/s) |
+| F3   | Cylinder Liner Wear  | Abrasive particles cause geometric deformation and seal failure.      | Increase Bore Diameter + Heavy Blow-by (0.03 kg/s)       |
+| F4   | Piston Ring Wear | Wear-induced seal degradation creates a blow-by feedback loop.     | Adjust Blow-by Mass Flow Rate (0.02 kg/s)          |
+| F5   | Piston Ring Sticking | Carbon deposits, poor lubrication, and sludge buildup.           | Adjust Bore Diameter + Increase Liner Temp + Blow-by           |
 
-通过上述故障建模，论文生成了涵盖正常与故障工况的综合数据集，为后续机器学习提供了高质量输入。
+This mechanism-driven modeling produces a high-quality, comprehensive dataset that serves as the "ground truth" for machine learning.
 
-## 基于RF与SHAP的特征筛选{#特征筛选}
-在数据集构建完成后，作者采用**随机森林**（**Random Forest, RF**）作为主要的机器学习模型，利用其强大的分类能力对燃烧室故障进行诊断。为了提升模型的可解释性，论文引入了**SHAP（SHapley Additive exPlanations**）方法，对模型输出进行深入分析。
+## Feature Selection via RF and SHAP{#特征筛选}
+With the dataset established, the **Random Forest (RF)** algorithm is employed as the primary classifier. To solve the "black box" problem, the authors introduce **SHAP** analysis to provide deep insights into the model's decision-making process.
 
-采用以下两阶段策略进行筛选：
+The feature selection follows a two-stage strategy:
 
-1.随机森林预识别
-- 利用 RF 学习参数与故障类型之间的映射关系；
-- 根据预测得分计算各参数的边际贡献。
+1.RF Preliminary Identification:
+- The RF learns the mapping between thermodynamic parameters and fault types.
+- Marginal contributions of each parameter are calculated based on prediction scores.
 
-2.Tree SHAP 定量分析
-- 计算各参数的 SHAP 值；
-- 依据 SHAP 权重筛选出对诊断最具贡献、且物理意义明确的参数。
+2.Tree SHAP Quantitative Analysis:
+- SHAP values are calculated for each parameter.
+- Features are filtered based on their SHAP weights, prioritizing those with the highest diagnostic impact and clearest physical significance.
 
-## 实验结果与性能评估{#实验结果}
-论文通过一系列实验验证了TSRF框架的有效性。结果显示，该方法在小样本数据环境下，依然能够实现高达95%以上的诊断准确率，显著优于传统的黑箱模型。
-此外，SHAP分析揭示了各热力学参数在不同故障类型中的重要性分布，为工程实践中的故障根因分析提供了宝贵的参考。
+## Experimental Results & Performance Evaluation{#实验结果}
+Experimental validation demonstrates the effectiveness of the TSRF framework. Even in small-sample environments, the method achieves a diagnostic accuracy of over 95%, significantly outperforming traditional black-box models.
+
+Moreover, the SHAP analysis successfully reveals the importance distribution of thermodynamic parameters across different fault types. This provides engineers with a reliable reference for Root Cause Analysis (RCA), turning a simple classification result into actionable physical insight.
