@@ -3,7 +3,7 @@
 
 <br>
 
-::: info [**Pubblicazione Originale📜:**](/Fault-Diagnosis/TSRF.pdf)
+::: info [**Pubblicazione Originale📜:**](/TSRF.pdf)
 *Thermodynamic Simulation-assisted Random Forest: Towards explainable fault diagnosis of combustion chamber components of marine diesel engines*, **Measurement**, 2025.
 :::
 
@@ -58,6 +58,8 @@ La selezione delle caratteristiche segue una strategia in due fasi:
 2. Analisi Quantitativa con Tree SHAP:
 - I valori SHAP vengono calcolati per ogni parametro.
 - Le caratteristiche vengono filtrate in base ai loro pesi SHAP, dando priorità a quelle con il massimo impatto diagnostico e la significanza fisica più evidente.
+<img src="/en图片9.png" style="width: 100%; " />
+<p align="center" style="color: grey">SHAP-based parameter selection process</p>
 
 ## Risultati Sperimentali e Valutazione delle Prestazioni {#risultati}
 La validazione sperimentale dimostra l'efficacia del framework TSRF. Anche in ambienti con campioni limitati, il metodo raggiunge una precisione diagnostica superiore al 95%, superando significativamente i modelli tradizionali a scatola nera.

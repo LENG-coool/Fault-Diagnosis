@@ -53,8 +53,7 @@ export default defineConfig({
       .VPNavBar .logo { display: none !important; }
       .VPDoc .aside { display: none !important; }
       .VPContent.has-sidebar { margin-right: 0 !important; }
- 
-      }
+
       /* -------------------------------------------------- */
       /* 核心修改：当处于封面页 (home) 时，隐藏侧边栏和语言切换器 */
       /* -------------------------------------------------- */
@@ -76,8 +75,9 @@ export default defineConfig({
         display: none !important;
       }
 
-      /* 强制隐藏首页语言切换 */
-      [class*="home"] .VPNavBar .VPNavBarTranslations {
+      /* 只在首页隐藏语言切换按钮 */
+      .VPLayout.home .VPNavBarTranslations,
+      [class*="home"] .VPNavBarTranslations {
         display: none !important;
       }
 

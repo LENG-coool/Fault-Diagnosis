@@ -3,7 +3,7 @@
 
 <br>
 
-::: info [**原始文献📜:**](/Fault-Diagnosis/TSRF.pdf)
+::: info [**原始文献📜:**](/TSRF.pdf)
 *Thermodynamic Simulation-assisted Random Forest: Towards explainable fault diagnosis of combustion chamber components of marine diesel engines*, **Measurement**, 2025.
 :::
 
@@ -59,6 +59,8 @@
 2.Tree SHAP 定量分析
 - 计算各参数的 SHAP 值；
 - 依据 SHAP 权重筛选出对诊断最具贡献、且物理意义明确的参数。
+<img src="/图片9.png" style="width: 100%; " />
+<p align="center" style="color: grey">基于SHAP值的参数筛选流程</p>
 
 ## 实验结果与性能评估{#实验结果}
 论文通过一系列实验验证了TSRF框架的有效性。结果显示，该方法在小样本数据环境下，依然能够实现高达95%以上的诊断准确率，显著优于传统的黑箱模型。
