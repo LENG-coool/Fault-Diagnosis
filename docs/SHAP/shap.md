@@ -73,7 +73,7 @@ SHAP 值表明了该参数在故障诊断中的重要程度：SHAP 值越大，�
 - P6 窜起热流量过高。
 
 ## 原始文献{#原始文献}
-C. Luo, M. Zhao, X. Fu, S. Zhong, S. Fu, K. Zhang, X. Yu. Thermodynamic simulation-assisted random forest: Towards explainable fault diagnosis of combustion chamber components of marine diesel engines [J]. Measurement, 2025, 251: 117252.
+*C. Luo, M. Zhao, X. Fu, S. Zhong, S. Fu, K. Zhang, X. Yu. Thermodynamic simulation-assisted random forest: Towards explainable fault diagnosis of combustion chamber components of marine diesel engines [J]. Measurement, 2025, 251: 117252.*
 
 <br>
 <hr>

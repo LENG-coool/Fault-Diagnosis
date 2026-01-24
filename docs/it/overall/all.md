@@ -27,11 +27,11 @@ Il framework TSRF integra un modello termodinamico 1D, un classificatore Random 
 
 ## Costruzione e Calibrazione del Modello Termodinamico 1D {#modello}
 La base dello studio è un **modello termodinamico 1D** progettato per simulare il comportamento termico della camera di combustione. Gli autori hanno eseguito una calibrazione meticolosa rispetto ai dati sperimentali per garantire che il modello rifletta accuratamente le caratteristiche termodinamiche in condizioni di esercizio reali.
-<img src="/en图片7.png"  style="width: 100%; margin: 0 auto; display: block;" />
+<img src="/it图片7.png"  style="width: 100%; margin: 0 auto; display: block;" />
 <p align="center" style="color: grey">Schema del Modello Termodinamico 1D</p>
 
 Inoltre, il modello viene calibrato utilizzando i dati di campo acquisiti tramite un **Modulo di Raccolta Dati (DCM)**. Ciò garantisce che l'output della simulazione rimanga coerente con i parametri termodinamici chiave osservati nelle operazioni del motore reale.
-<img src="/en图片6.png" style="width: 60%; margin: 0 auto; display: block;" />
+<img src="/it图片6.png" style="width: 60%; margin: 0 auto; display: block;" />
 <p align="center" style="color: grey">Modulo di Raccolta Dati (DCM)</p>
 
 ## Modellazione Fisica e Simulazione di Guasti Tipici {#guasti}
