@@ -52,10 +52,19 @@ export default defineConfig({
           processRefs: false,
           processEnvironments: false
         },
-        svg: { fontCache: 'global' }
+        svg: { fontCache: 'global' },
+        startup: {
+          ready: () => {
+            MathJax.startup.defaultReady();
+            MathJax.startup.promise.then(() => {
+              // 初始渲染
+              MathJax.typesetPromise();
+            });
+          }
+        }
       };
     `],
-    ['script', { src: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js', async: true }],
+    ['script', { src: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js' }],
     ['script', {}, `
       // 监听路由变化并重新渲染公式
       if (typeof window !== 'undefined') {
@@ -82,11 +91,22 @@ export default defineConfig({
           timeoutId = setTimeout(rerenderMath, 100);
         });
         
-        observer.observe(document.body, {
-          childList: true,
-          subtree: true,
-          characterData: true
-        });
+        // 等待 body 存在后再观察
+        const startObserving = () => {
+          if (document.body) {
+            observer.observe(document.body, {
+              childList: true,
+              subtree: true,
+              characterData: true
+            });
+          }
+        };
+        
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', startObserving);
+        } else {
+          startObserving();
+        }
       }
     `],
     ['style', {}, `
