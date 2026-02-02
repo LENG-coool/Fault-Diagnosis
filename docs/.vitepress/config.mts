@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import mathjax3 from 'markdown-it-mathjax3'
 
 export default defineConfig({
   base: '/Fault-Diagnosis/',
@@ -42,73 +43,13 @@ export default defineConfig({
     }
   },
 
+  markdown: {
+    config: (md) => {
+      md.use(mathjax3)
+    }
+  },
+
   head: [
-    ['script', {}, `
-      window.MathJax = {
-        tex: {
-          inlineMath: [['$', '$']],
-          displayMath: [['$$', '$$']],
-          processEscapes: true,
-          processRefs: false,
-          processEnvironments: false
-        },
-        svg: { fontCache: 'global' },
-        startup: {
-          ready: () => {
-            MathJax.startup.defaultReady();
-            MathJax.startup.promise.then(() => {
-              // 初始渲染
-              MathJax.typesetPromise();
-            });
-          }
-        }
-      };
-    `],
-    ['script', { src: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js' }],
-    ['script', {}, `
-      // 监听路由变化并重新渲染公式
-      if (typeof window !== 'undefined') {
-        let timeoutId = null;
-        const rerenderMath = () => {
-          if (window.MathJax && window.MathJax.typesetPromise) {
-            try {
-              window.MathJax.typesetPromise().catch(err => console.log(err));
-            } catch (err) {
-              console.log(err);
-            }
-          }
-        };
-        
-        // 监听 hashchange 事件
-        window.addEventListener('hashchange', () => {
-          clearTimeout(timeoutId);
-          timeoutId = setTimeout(rerenderMath, 100);
-        });
-        
-        // 使用 MutationObserver 监听 DOM 变化
-        const observer = new MutationObserver(() => {
-          clearTimeout(timeoutId);
-          timeoutId = setTimeout(rerenderMath, 100);
-        });
-        
-        // 等待 body 存在后再观察
-        const startObserving = () => {
-          if (document.body) {
-            observer.observe(document.body, {
-              childList: true,
-              subtree: true,
-              characterData: true
-            });
-          }
-        };
-        
-        if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', startObserving);
-        } else {
-          startObserving();
-        }
-      }
-    `],
     ['style', {}, `
       /* 基础样式调整 */
       .VPNavBarTitle .title { font-size: 14px !important; white-space: nowrap !important; }
