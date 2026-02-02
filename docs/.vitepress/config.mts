@@ -1,5 +1,4 @@
 import { defineConfig } from 'vitepress'
-import katex from 'markdown-it-katex'
 
 export default defineConfig({
   base: '/Fault-Diagnosis/',
@@ -43,10 +42,53 @@ export default defineConfig({
     }
   },
 
-  markdown: { config: (md) => { md.use(katex) } },
-  
   head: [
-    ['link', { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css' }],
+    ['script', {}, `
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$']],
+          displayMath: [['$$', '$$']],
+          processEscapes: true,
+          processRefs: false,
+          processEnvironments: false
+        },
+        svg: { fontCache: 'global' }
+      };
+    `],
+    ['script', { src: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js', async: true }],
+    ['script', {}, `
+      // 监听路由变化并重新渲染公式
+      if (typeof window !== 'undefined') {
+        let timeoutId = null;
+        const rerenderMath = () => {
+          if (window.MathJax && window.MathJax.typesetPromise) {
+            try {
+              window.MathJax.typesetPromise().catch(err => console.log(err));
+            } catch (err) {
+              console.log(err);
+            }
+          }
+        };
+        
+        // 监听 hashchange 事件
+        window.addEventListener('hashchange', () => {
+          clearTimeout(timeoutId);
+          timeoutId = setTimeout(rerenderMath, 100);
+        });
+        
+        // 使用 MutationObserver 监听 DOM 变化
+        const observer = new MutationObserver(() => {
+          clearTimeout(timeoutId);
+          timeoutId = setTimeout(rerenderMath, 100);
+        });
+        
+        observer.observe(document.body, {
+          childList: true,
+          subtree: true,
+          characterData: true
+        });
+      }
+    `],
     ['style', {}, `
       /* 基础样式调整 */
       .VPNavBarTitle .title { font-size: 14px !important; white-space: nowrap !important; }

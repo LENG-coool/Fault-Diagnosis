@@ -2,8 +2,8 @@
 layout: home
 
 hero:
-  name: Thermodynamic Simulation-assisted Random Forest
-  text: Explainable Fault Diagnosis for Marine Diesel Engine Combustion Chamber Components
+  name: Thermodynamic Simulation-assisted Random Forest：
+  text: Towards explainable fault diagnosis of combustion chamber components of marine diesel engines
   tagline: "Research on Explainable Analysis Based on Random Forest"
   actions:
     - theme: brand
