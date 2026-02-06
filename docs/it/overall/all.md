@@ -22,7 +22,7 @@ Il framework TSRF integra un modello termodinamico 1D, un classificatore Random 
 1. **Generazione e Preprocessamento dei Dati**: I set di dati sintetici che coprono condizioni normali e di guasto vengono generati tramite simulazione termodinamica 1D.
 2. **Addestramento e Validazione del Modello**: Un modello Random Forest viene addestrato sui dati preprocessati, con le prestazioni valutate mediante convalida incrociata.
 3. **Analisi di Interpretabilità**: Il metodo SHAP viene applicato al modello addestrato per identificare i parametri termodinamici chiave e quantificarne il contributo ai risultati diagnostici.
-<img src="/en图片8.png" style="width: 100%; margin: 0 auto; display: block;" />
+<img src="/it图片8.png" style="width: 100%; margin: 0 auto; display: block;" />
 <p align="center" style="color: grey">Il Framework Random Forest Assistito da Simulazione Termodinamica (TSRF)</p>
 
 ## Costruzione e Calibrazione del Modello Termodinamico 1D {#modello}
@@ -58,7 +58,7 @@ La selezione delle caratteristiche segue una strategia in due fasi:
 2. Analisi Quantitativa con Tree SHAP:
 - I valori SHAP vengono calcolati per ogni parametro.
 - Le caratteristiche vengono filtrate in base ai loro pesi SHAP, dando priorità a quelle con il massimo impatto diagnostico e la significanza fisica più evidente.
-<img src="/en图片9.png" style="width: 100%; " />
+<img src="/it图片9.png" style="width: 100%; " />
 <p align="center" style="color: grey">SHAP-based parameter selection process</p>
 
 ## Risultati Sperimentali e Valutazione delle Prestazioni {#risultati}
